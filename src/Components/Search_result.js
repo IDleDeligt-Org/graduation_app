@@ -1,6 +1,7 @@
 import { SearchBar } from "./Search_bar";
 import sampleCocktails from '../Data/sampleCocktails.json';
-import CocktailPage from "./Cocktail_Page";
+import DrinkPage from './Drink_page';
+
 
 
 export function CocktailList () {

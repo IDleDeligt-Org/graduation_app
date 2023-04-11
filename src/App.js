@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import { CocktailSearch } from './Components/Cocktail_Search';
+import {SearchBar} from './Components/Search_bar';
 
 
 function App() {
   return (
     <div className="App">
       Hallo på do
-      <CocktailSearch></CocktailSearch>
+      <SearchBar></SearchBar>
     </div>
   );
 }

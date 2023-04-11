@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       Hallo på do
       <SearchBar></SearchBar>
-      <CocktailList></CocktailList>
+      
     </div>
   );
 }

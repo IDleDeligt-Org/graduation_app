@@ -4,13 +4,16 @@ import CocktailPage from "./Cocktail_Page";
 
 
 export function CocktailList () {
-    const cocktails = sampleCocktails.drinks[0];
+    const cocktails = sampleCocktails.drinks;
+
     return (
         <div>
             <ul>
+                {cocktails.map((cocktail) => (
                 <li>
-                    {cocktails.strDrink}
+                    {cocktail.strDrink} {cocktail.strCategory} 
                 </li>
+                ))}
             </ul>
         </div>
     )

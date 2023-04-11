@@ -10,13 +10,13 @@ const DrinkPage = () => {
       <img className='Drink-page-image' src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
 
       <div className='Drink-page-text'>
+        <h1>{cocktail.strDrink}</h1>
 
         <div className='Drink-page-tags'>
-          <h1>{cocktail.strDrink}</h1>
           <p>{cocktail.strCategory} {cocktail.strTags} {cocktail.strIBA}</p>
         </div>
 
-        <br/><p>Glass: {cocktail.strGlass}</p>
+        <br /><p>Glass: {cocktail.strGlass}</p>
 
         <div className='Drink-page-ingredient'>
           <h2>Ingredient</h2>

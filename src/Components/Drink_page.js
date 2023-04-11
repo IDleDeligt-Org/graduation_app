@@ -1,18 +1,19 @@
+import './Drink_page.css';
 import React from 'react';
 import sampleCocktails from '../Data/sampleCocktails.json';
 
-const CocktailPage = () => {
+const DrinkPage = () => {
     const cocktail = sampleCocktails.drinks[0];
   
     return (
-      <div>
+      <div className=''>
+        <img className='Drink-thumbnail' src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
         <h1>{cocktail.strDrink}</h1>
-        <p>Category: {cocktail.strCategory}</p>
+        <p>Tag: {cocktail.strCategory} {cocktail.strTags} {cocktail.strIBA}</p>
         <p>Glass: {cocktail.strGlass}</p>
         <p>Instructions: {cocktail.strInstructions}</p>
-        <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
       </div>
     );
   };
 
-export default CocktailPage;
+export default DrinkPage;

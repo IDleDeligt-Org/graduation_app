@@ -4,6 +4,7 @@ import sampleCocktails from '../Data/sampleCocktails.json';
 
 export function SearchBar({setFilteredCocktails}){
     const [searchText, setSearchText] = useState("");
+    const url = "http://localhost:5276"
 
     function handleSearch(event) {
         event.preventDefault();

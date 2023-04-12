@@ -1,10 +1,12 @@
 import './App.css';
 import { SearchBar } from './Components/Search_bar';
 import DrinkPage from './Components/Drink_page';
-import { CocktailList } from './Components/Search_result';
-
+import { CocktailList } from './Components/CocktailList';
+import { useState } from "react"
 
 function App() {
+  const [filteredCocktails, setFilteredCocktails] = useState([]);
+
   return (
     <div className="App">
       <div className="App-header">
@@ -12,7 +14,8 @@ function App() {
       </div>
 
       <div className='App-content'>
-        <SearchBar></SearchBar>
+        <SearchBar setFilteredCocktails={setFilteredCocktails}></SearchBar>
+        <CocktailList filteredCocktails={filteredCocktails}></CocktailList>
         <DrinkPage></DrinkPage>
       </div>
 

@@ -12,9 +12,15 @@ import React, { useState } from 'react';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('main');
+  const [selectedCocktail, setSelectedCocktail] = useState(null);
 
   function navigateTo(page) {
     setCurrentPage(page);
+  }
+
+  function handleCocktailSelect(cocktail) {
+    setSelectedCocktail(cocktail);
+    setCurrentPage('drink');
   }
 
   return (
@@ -25,13 +31,15 @@ function App() {
 
       <div className='App-content'>
         {currentPage === 'login' && <LoginPage />}
-        {currentPage === 'main' && <MainPage />}
-        {currentPage === 'search' && <SearchPage />}
+        
+        {currentPage === 'main' && <MainPage onCocktailSelect={handleCocktailSelect} />}
+        {/* {currentPage === 'search' && <SearchPage onCocktailSelect={handleCocktailSelect} />} */}
         {currentPage === 'ingredients' && <IngredientsPage />}
         {currentPage === 'inspiration' && <InspirationPage />}
         {currentPage === 'favourites' && <FavouritePage />}
         {currentPage === 'settings' && <SettingsPage />}
-        {currentPage === 'drink' && <DrinkPage />}
+
+        {currentPage === 'drink' && <DrinkPage cocktail={selectedCocktail} />}
       </div>
 
       <div className='App-footer'>

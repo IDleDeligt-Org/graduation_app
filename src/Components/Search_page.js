@@ -1,15 +1,15 @@
 import { SearchBar } from './Search_bar';
-import { CocktailList } from './CocktailList';
+import CocktailList from './CocktailList';
 import { useState } from "react"
 
-const SearchPage = () => {
+const SearchPage = ({ onCocktailSelect }) => {
   const [filteredCocktails, setFilteredCocktails] = useState([]);
     
   
     return (
       <div>
         <SearchBar setFilteredCocktails={setFilteredCocktails}></SearchBar>
-        <CocktailList filteredCocktails={filteredCocktails}></CocktailList>
+        <CocktailList filteredCocktails={filteredCocktails} onCocktailSelect={onCocktailSelect} />
       </div>
     );
   };

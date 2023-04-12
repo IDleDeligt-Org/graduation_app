@@ -1,11 +1,11 @@
-export function CocktailList ({filteredCocktails}) {
+export default function CocktailList ({filteredCocktails, onCocktailSelect}) {
 
     return (
         <div>
             {filteredCocktails.map((cocktail, index) => {
                 return (
                     <>
-                    <p key={index}>{cocktail.strDrink}</p>
+                    <p key={index} onClick={() => onCocktailSelect(cocktail)}>{cocktail.strDrink}</p>
                     <img src="" alt=""></img>
                     </>
                 )

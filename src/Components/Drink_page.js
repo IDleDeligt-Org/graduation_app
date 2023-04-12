@@ -1,9 +1,10 @@
 import './Drink_page.css';
 import React from 'react';
-import sampleCocktails from '../Data/sampleCocktails.json';
 
-const DrinkPage = () => {
-  const cocktail = sampleCocktails.drinks[0];
+const DrinkPage = ({ cocktail }) => {
+  if (!cocktail) {
+    return <div>No cocktail selected</div>;
+  }
 
   return (
     <div className='Drink-page-content'>

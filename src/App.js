@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { SearchBar } from './Components/Search_bar';
 import DrinkPage from './Components/Drink_page';

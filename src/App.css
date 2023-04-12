@@ -41,3 +41,17 @@ p {
 .App-link {
   color: #61dafb;
 }
+
+.App-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #006f80;
+  padding: 10px 0;
+  z-index: 100;
+}

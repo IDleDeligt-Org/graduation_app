@@ -7,9 +7,15 @@ import IngredientsPage from './Components/Ingredients_page';
 import InspirationPage from './Components/Inspiration_page';
 import FavouritePage from './Components/Favourites__page';
 import SettingsPage from './Components/Settings_page';
+import NavBar from './Components/Nav_bar';
+import React, { useState } from 'react';
 
 function App() {
-  
+  const [currentPage, setCurrentPage] = useState('main');
+
+  function navigateTo(page) {
+    setCurrentPage(page);
+  }
 
   return (
     <div className="App">
@@ -18,18 +24,18 @@ function App() {
       </div>
 
       <div className='App-content'>
-        <LoginPage></LoginPage>
-        <MainPage></MainPage>
-        <SearchPage></SearchPage>
-        <IngredientsPage></IngredientsPage>
-        <InspirationPage></InspirationPage>
-        <FavouritePage></FavouritePage>
-        <SettingsPage></SettingsPage>
-        <DrinkPage></DrinkPage>
+        {currentPage === 'login' && <LoginPage />}
+        {currentPage === 'main' && <MainPage />}
+        {currentPage === 'search' && <SearchPage />}
+        {currentPage === 'ingredients' && <IngredientsPage />}
+        {currentPage === 'inspiration' && <InspirationPage />}
+        {currentPage === 'favourites' && <FavouritePage />}
+        {currentPage === 'settings' && <SettingsPage />}
+        {currentPage === 'drink' && <DrinkPage />}
       </div>
 
       <div className='App-footer'>
-
+        <NavBar navigateTo={navigateTo} />
       </div>
     </div>
   );

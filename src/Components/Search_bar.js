@@ -1,10 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import sampleCocktails from '../Data/sampleCocktails.json';
 
 
 export function SearchBar({setFilteredCocktails}){
     const [searchText, setSearchText] = useState("");
-    const url = "http://localhost:5276"
+    const url = "http://localhost:5276/api/beverage"
+    const [beverage, setBeverage] = useState("");
+
+    useEffect(() => {
+        fetchBeverage()
+    }, [])
+
+    async function fetchBeverage(){
+        const response = await fetch(url)
+        if (response.ok){
+            const body = await response.json();
+            setBeverage(body)
+        }
+    }
 
     function handleSearch(event) {
         event.preventDefault();

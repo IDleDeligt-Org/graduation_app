@@ -1,12 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-import { SearchBar } from './Components/Search_bar';
+import LoginPage from './Components/Login_page';
+import MainPage from './Components/Main_page';
+import SearchPage from './Components/Search_page';
 import DrinkPage from './Components/Drink_page';
-import { CocktailList } from './Components/CocktailList';
-import { useState } from "react"
+import IngredientsPage from './Components/Ingredients_page';
+import InspirationPage from './Components/Inspiration_page';
+import FavouritePage from './Components/Favourites__page';
+import SettingsPage from './Components/Settings_page';
 
 function App() {
-  const [filteredCocktails, setFilteredCocktails] = useState([]);
+  
 
   return (
     <div className="App">
@@ -15,8 +18,13 @@ function App() {
       </div>
 
       <div className='App-content'>
-        <SearchBar setFilteredCocktails={setFilteredCocktails}></SearchBar>
-        <CocktailList filteredCocktails={filteredCocktails}></CocktailList>
+        <LoginPage></LoginPage>
+        <MainPage></MainPage>
+        <SearchPage></SearchPage>
+        <IngredientsPage></IngredientsPage>
+        <InspirationPage></InspirationPage>
+        <FavouritePage></FavouritePage>
+        <SettingsPage></SettingsPage>
         <DrinkPage></DrinkPage>
       </div>
 

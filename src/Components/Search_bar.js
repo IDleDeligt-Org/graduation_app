@@ -8,6 +8,7 @@ export function SearchBar({setFilteredCocktails}){
     function handleSearch(event) {
         event.preventDefault();
         if (searchText !== "") {
+            searchText.replace(/[^a-zA-Z]+/g, '');
              const filtered = sampleCocktails.drinks.filter(
                  (cocktail) =>
                  cocktail.strDrink
@@ -15,13 +16,19 @@ export function SearchBar({setFilteredCocktails}){
                  .includes(searchText.toLocaleLowerCase())
                  );
             setFilteredCocktails(filtered);
+
+            // Maks antall tegn, minimum antall, regex a-z A-Z 
             }
+    }
+
+    function checkSearchText(text){
+        setSearchText(text.replace(/[^a-zA-Z]+/g, ''));
     }
     
     return (
         <form onSubmit={handleSearch}>
             <label> 
-                <input value={searchText} onChange={event => setSearchText(event.target.value)} name="searchText"></input>
+                <input value={searchText} onChange={event => checkSearchText(event.target.value)} name="searchText"></input>
             </label>
             <button type="submit">Search</button>
         </form>

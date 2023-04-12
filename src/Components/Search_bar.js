@@ -1,34 +1,29 @@
 import { useState } from "react"
-import { CocktailList } from "./Search_result"
 import sampleCocktails from '../Data/sampleCocktails.json';
 
 
-export function SearchBar(){
+export function SearchBar({setFilteredCocktails}){
     const [searchText, setSearchText] = useState("");
-    const [filteredCocktails, setFilteredCocktails] = useState([]);
 
-    const handleSearch = (event) => {
+    function handleSearch(event) {
         event.preventDefault();
-        if (searchText === "") {
-           setFilteredCocktails(sampleCocktails.drinks);
-        } else {
-            const filtered = [...filteredCocktails]
-            sampleCocktails.drinks.filter(
-                (cocktail) =>
-                cocktail.strDrink
-                .includes(searchText)
-            );
+        if (searchText !== "") {
+             const filtered = sampleCocktails.drinks.filter(
+                 (cocktail) =>
+                 cocktail.strDrink
+                 .toLowerCase()
+                 .includes(searchText.toLocaleLowerCase())
+                 );
             setFilteredCocktails(filtered);
-        }
+            }
     }
-
+    
     return (
         <form onSubmit={handleSearch}>
-        <label> 
-            <input value={searchText} onChange={event => setSearchText(event.target.value)} name="searchText"></input>
-        </label>
-        <button type="submit">Search</button>
-        {filteredCocktails.length > 0 && <CocktailList cocktails={filteredCocktails} />}
+            <label> 
+                <input value={searchText} onChange={event => setSearchText(event.target.value)} name="searchText"></input>
+            </label>
+            <button type="submit">Search</button>
         </form>
     );
 }

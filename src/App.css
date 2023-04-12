@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
 
-.App {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  max-width: 900px;
-}
-
 h1 {
   font-size: 2em;
   font-weight: 700;
@@ -20,6 +14,15 @@ p {
   margin: 0;
 }
 
+.App {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 /* .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -30,6 +33,10 @@ p {
   font-size: calc(10px + 2vmin);
   color: white;
 } */
+
+.App-content {
+  max-width: 900px;
+}
 
 .App-link {
   color: #61dafb;

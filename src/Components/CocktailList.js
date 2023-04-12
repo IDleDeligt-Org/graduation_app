@@ -6,7 +6,7 @@ export function CocktailList ({filteredCocktails}) {
                 return (
                     <>
                     <p key={index}>{cocktail.strDrink}</p>
-                    <img src=""></img>
+                    <img src="" alt=""></img>
                     </>
                 )
             })}

@@ -7,12 +7,9 @@ import IngredientsPage from './Components/Ingredients_page';
 import InspirationPage from './Components/Inspiration_page';
 import FavouritePage from './Components/Favourites__page';
 import SettingsPage from './Components/Settings_page';
-import { SearchBar } from './Components/Search_bar';
-import { CocktailList } from './Components/CocktailList';
-import { useState } from "react"
 
 function App() {
-  const [filteredCocktails, setFilteredCocktails] = useState([]);
+  
 
   return (
     <div className="App">
@@ -28,8 +25,6 @@ function App() {
         <InspirationPage></InspirationPage>
         <FavouritePage></FavouritePage>
         <SettingsPage></SettingsPage>
-        <SearchBar setFilteredCocktails={setFilteredCocktails}></SearchBar>
-        <CocktailList filteredCocktails={filteredCocktails}></CocktailList>
         <DrinkPage></DrinkPage>
       </div>
 

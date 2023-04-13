@@ -7,8 +7,8 @@ const MainPage = ({ onCocktailSelect }) => {
 
   return (
     <div>
-      <SearchBar setFilteredCocktails={setFilteredCocktails}></SearchBar>
       <CocktailList filteredCocktails={filteredCocktails} onCocktailSelect={onCocktailSelect}></CocktailList>
+      <SearchBar setFilteredCocktails={setFilteredCocktails}></SearchBar>
     </div>
   );
 };

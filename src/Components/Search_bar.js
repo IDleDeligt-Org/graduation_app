@@ -8,7 +8,7 @@ export function SearchBar({setFilteredCocktails}){
     async function handleSearch(event) {
         event.preventDefault();
 
-        var resp = await fetch(url + "/" + searchText)
+        await fetch(url + "/" + searchText)
             .then((response) => response.json())
             .then((result) => setFilteredCocktails(result.$values))
             

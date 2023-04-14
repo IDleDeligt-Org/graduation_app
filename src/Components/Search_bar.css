@@ -2,10 +2,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80vw;
-    
+    width: 80%;
+    padding: 20px 0;
     background-color: #ffffff00;
-    padding-bottom: 20px;
+}
+
+.search-bar-container {
+    background-image: linear-gradient(to top, #ffffff, transparent);
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    width: 100vw;
+    max-width: 900px;
 }
 
 .search-bar .search-field {
@@ -52,7 +60,6 @@
     font-weight: normal;
     font-style: normal;
     font-size: 28px;
-
     color: #fff;
     /* Preferred icon size */
     display: inline-block;

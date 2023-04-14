@@ -39,7 +39,7 @@ p {
 }
 
 .App-link {
-  color: #61dafb;
+  color: #ffd500ff;
 }
 
 .App-footer {
@@ -51,7 +51,7 @@ p {
   justify-content: center;
   align-items: center;
 
-  background-color: #006f80;
+  background-color: #fff;
   padding: 10px 0;
   z-index: 100;
 }

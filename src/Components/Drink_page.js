@@ -8,29 +8,34 @@ const DrinkPage = ({ cocktail }) => {
 
   return (
     <div className='Drink-page-content'>
-      <img className='Drink-page-image' src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
+      <img className='Drink-page-image' src={cocktail.image} alt={cocktail.name} />
 
       <div className='Drink-page-text'>
-        <h1>{cocktail.strDrink}</h1>
+        <h1>{cocktail.name}</h1>
 
         <div className='Drink-page-tags'>
-          <p>{cocktail.strCategory} {cocktail.strTags} {cocktail.strIBA}</p>
+          <p>{cocktail.tag}</p>
         </div>
 
-        <br /><p>Glass: {cocktail.strGlass}</p>
+        <br /><p>Glass: {cocktail.glass}</p>
 
         <div className='Drink-page-ingredient'>
           <h2>Ingredient</h2>
-          <p>{cocktail.strMeasure1} {cocktail.strIngredient1}</p>
-          <p>{cocktail.strMeasure2} {cocktail.strIngredient2}</p>
-          <p>{cocktail.strMeasure3} {cocktail.strIngredient3}</p>
-          <p>{cocktail.strMeasure4} {cocktail.strIngredient4}</p>
-          <p>{cocktail.strMeasure5} {cocktail.strIngredient5}</p>
+          {cocktail.beverageIngredients.$values.map((ingredients, index) => {
+            return (
+              <>
+              <div key={index}>
+                <span>{ingredients.measurment}</span>
+                <span style={{marginLeft: "5px"}}> | </span>
+                <span>{ingredients.ingredient.name}</span> </div>
+              </>
+            )
+          })} 
         </div>
 
         <div className='Drink-page-instructions'>
           <h2>Instructions:</h2>
-          <p>{cocktail.strInstructions}</p>
+          <p>{cocktail.instruction}</p>
         </div>
       </div>
     </div>

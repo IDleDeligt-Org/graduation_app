@@ -1,3 +1,4 @@
+import './Search_bar.css';
 import { useState } from "react"
 
 
@@ -19,11 +20,11 @@ export function SearchBar({setFilteredCocktails}){
     }
     
     return (
-        <form onSubmit={handleSearch}>
-            <label> 
-                <input value={searchText} onChange={event => checkSearchText(event.target.value)} name="searchText"></input>
+        <form className='search-bar' onSubmit={handleSearch}>
+            <label className='search-field'> 
+                <input value={searchText} onChange={event => checkSearchText(event.target.value)} name="searchText" placeholder='Search...'></input>
             </label>
-            <button type="submit">Search</button>
+            <button type="submit" className="search-btn material-icons">search</button>
         </form>
     );
 }

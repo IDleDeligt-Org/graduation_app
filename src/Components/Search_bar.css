@@ -1,0 +1,80 @@
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80vw;
+    
+    background-color: #ffffff00;
+    padding-bottom: 20px;
+}
+
+.search-bar .search-field {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+}
+
+.search-bar .search-field input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.search-bar .search-field input {
+    width: 100%;
+    height: 45px;
+    border-radius: 50px;
+    border: 0px;
+    padding: 0px 20px;
+    font-size: 1rem;
+    background-color: #f1f1f1;
+}
+
+.search-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1rem;
+    text-align: center;
+    background-color: #ffd500ff;
+    border: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-btn:active {
+    background-color: #fff;
+    border: 3px solid #ffd500ff;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 28px;
+
+    color: #fff;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.material-icons:active {
+    color: #ffd500ff;
+}

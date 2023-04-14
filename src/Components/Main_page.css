@@ -1,15 +1,15 @@
 .main-page-container {
     display: flex;
     flex-direction: column;
-    height: 100%;
-  }
-  
-  .main-page-content {
+    height: calc(100vh - 80px);
+}
+
+.main-page-content {
     flex-grow: 1;
     overflow-y: auto;
-  }
-  
-  .search-bar-container {
+}
+
+.search-bar-container {
     display: flex;
     justify-content: center;
-  }
+}

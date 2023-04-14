@@ -13,7 +13,10 @@
   font-size: 1rem;
   text-align: center;
   background-color: #fff;
-  border: 3px solid #ffd500ff;
+  border: 1px solid #e3e3e3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .NavBar button:nth-child(3) {
@@ -25,8 +28,9 @@
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;
-  color: #ffd500ff;
+  font-size: 28px;
+  
+  color: #e3e3e3;
   /* Preferred icon size */
   display: inline-block;
   line-height: 1;
@@ -46,4 +50,8 @@
 
   /* Support for IE. */
   font-feature-settings: 'liga';
+}
+
+.material-icons.active {
+  color: #ffd500ff; /* Change this to your desired active color */
 }

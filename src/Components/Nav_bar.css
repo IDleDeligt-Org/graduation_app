@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #ffd500ff; /* Add a background color so the navbar remains visible */
+  background-color: #ffd500ff;
 }
 
 .NavBar button {

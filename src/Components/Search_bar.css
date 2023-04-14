@@ -8,7 +8,7 @@
 }
 
 .search-bar-container {
-    background-image: linear-gradient(to top, #ffffff, transparent);
+    background-image: linear-gradient(to top, #000, transparent);
     position: absolute;
     bottom: 80px;
     left: 0;
@@ -34,7 +34,7 @@
     border: 0px;
     padding: 0px 20px;
     font-size: 1rem;
-    background-color: #f1f1f1;
+    background-color: #fff;
 }
 
 .search-btn {

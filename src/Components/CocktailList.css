@@ -3,6 +3,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 0;
     padding: 0;
+    padding-bottom: 80px;
   }
   
   .cocktail-item {

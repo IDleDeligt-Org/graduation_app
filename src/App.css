@@ -15,12 +15,17 @@ p {
 }
 
 .App {
-  margin: 0;
+  width: 100vw;
+  max-width: 900px; 
+  margin: 0 auto;
   font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  min-height: 100vh;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 /* .App-header {
@@ -35,7 +40,9 @@ p {
 } */
 
 .App-content {
-  max-width: 900px;
+  width: 100%;
+  flex-grow: 1;
+  padding-bottom: 80px;
 }
 
 .App-link {
@@ -43,15 +50,14 @@ p {
 }
 
 .App-footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
+  max-width: 900px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background-color: #fff;
-  padding: 10px 0;
+  background-color: #ffd500ff;
   z-index: 100;
 }

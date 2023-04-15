@@ -1,4 +1,9 @@
-.Drink-page-content {
+h2 {
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.drink-page-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,16 +13,37 @@
   width: 100%;
 }
 
-.Drink-page-image {
+.drink-page-image {
   margin: 0;
   width: 100%;
 }
 
-.Drink-page-text {
-  padding-top: 20px;
+.drink-page-text {
+  padding: 20px;
 } 
 
-.Drink-page-tags {
+.drink-page-tags {
   font-weight: 100;
   font-style: italic;
+}
+
+.drink-page-ingredients {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.drink-page-ingredient {
+  display: contents;
+  font-size: 1.2em;
+}
+
+.drink-measurement {
+  text-align: right;
+  margin-right: 5px;
+}
+
+.drink-ingredient {
+  text-align: left;
 }

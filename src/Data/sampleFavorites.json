@@ -1,0 +1,100 @@
+{
+    "userid": "1",
+    "$values": [
+        {
+            "$favoriteId": "2",
+            "beverageId": 1,
+            "name": "Potato Margarita",
+            "tag": "ordinary",
+            "alcohol": true,
+            "glass": "Martini Glass",
+            "instruction": "Shake it like a polaroid picture",
+            "image": "http://potatomargarita.com",
+            "video": null,
+            "imageAttribution": null,
+            "creativeCommonsConfirmed": false,
+            "beverageIngredients": {
+                "$id": "3",
+                "$values": [
+                    {
+                        "$id": "4",
+                        "beverageIngredientId": 1,
+                        "beverageId": 1,
+                        "ingredientId": 1,
+                        "measurment": "60ml",
+                        "beverage": {
+                            "$ref": "2"
+                        },
+                        "ingredient": {
+                            "$id": "5",
+                            "ingredientId": 1,
+                            "name": "Brocoli Liqueur",
+                            "description": "Great vegetable, quite bitter",
+                            "image": "http://brocoli.com",
+                            "beverageIngredients": {
+                                "$id": "6",
+                                "$values": [
+                                    {
+                                        "$ref": "4"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "$id": "7",
+                        "beverageIngredientId": 2,
+                        "beverageId": 1,
+                        "ingredientId": 2,
+                        "measurment": "One Slice",
+                        "beverage": {
+                            "$ref": "2"
+                        },
+                        "ingredient": {
+                            "$id": "8",
+                            "ingredientId": 2,
+                            "name": "Potato",
+                            "description": "Saved nations from famine",
+                            "image": "http://potato.com",
+                            "beverageIngredients": {
+                                "$id": "9",
+                                "$values": [
+                                    {
+                                        "$ref": "7"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "$id": "10",
+                        "beverageIngredientId": 3,
+                        "beverageId": 1,
+                        "ingredientId": 3,
+                        "measurment": "35ml",
+                        "beverage": {
+                            "$ref": "2"
+                        },
+                        "ingredient": {
+                            "$id": "11",
+                            "ingredientId": 3,
+                            "name": "Tomato extract",
+                            "description": "The italian berry",
+                            "image": "http://tomato.com",
+                            "beverageIngredients": {
+                                "$id": "12",
+                                "$values": [
+                                    {
+                                        "$ref": "10"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "favorites": null,
+            "source": 0
+        }
+    ]
+}

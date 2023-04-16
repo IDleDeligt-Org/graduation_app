@@ -10,6 +10,7 @@ const MainPage = ({ onCocktailSelect }) => {
 
   return (
     <div className="main-page-container">
+      
       <div className="main-page-content">
         {showQuickstart ? (
           <div className='main-quickstart-widget'>

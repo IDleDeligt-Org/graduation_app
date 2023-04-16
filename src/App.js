@@ -8,6 +8,7 @@ import FavouritePage from './Components/Favourites__page';
 import SettingsPage from './Components/Settings_page';
 import NavBar from './Components/Nav_bar';
 import React, { useState } from 'react';
+import Logo from './Components/Logo';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('main');
@@ -26,8 +27,9 @@ function App() {
 
   return (
     <div className="App">
+      <Logo />
       <div className="App-header">
-
+        
       </div>
 
       <div className='App-content'>

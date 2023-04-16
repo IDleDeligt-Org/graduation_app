@@ -1,0 +1,11 @@
+.App-logo {
+    position: fixed;
+    z-index: 1;
+    fill: #0c0c0c;
+    width: 90%;
+    height: auto;
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+}

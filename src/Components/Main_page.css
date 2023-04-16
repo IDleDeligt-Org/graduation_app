@@ -17,3 +17,13 @@
 .main-quickstart-widget {
     padding: 15px;
 }
+
+.App-logo {
+    fill: #111;
+    width: 90%;
+    height: auto;
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+  }

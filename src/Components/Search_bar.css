@@ -22,6 +22,11 @@
     outline: none;
 }
 
+.search-bar .search-field input::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+}
+
 .search-bar .search-field input:focus {
     outline: none;
     box-shadow: none;

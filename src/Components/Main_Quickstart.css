@@ -39,13 +39,27 @@
 }
 
 .quickstart-button {
-    background-color: #ccc;
+    background-color: #ffd500ff;
     border: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 1.2em;
     text-align: center;
     line-height: 1;
-}
+    position: relative;
+    width: 100%;
+    padding-bottom: 50%;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .quickstart-button-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  

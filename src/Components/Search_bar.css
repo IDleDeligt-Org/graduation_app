@@ -1,4 +1,6 @@
 .search-bar {
+    position: relative;
+    z-index: 2;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,6 +10,8 @@
 }
 
 .search-bar-container {
+    position: relative;
+    z-index: 2;
     background-image: linear-gradient(to top, #000, transparent);
     position: absolute;
     bottom: 80px;

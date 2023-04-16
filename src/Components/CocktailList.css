@@ -1,4 +1,6 @@
 .cocktail-list {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0;

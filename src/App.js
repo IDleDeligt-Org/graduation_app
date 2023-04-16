@@ -37,7 +37,7 @@ function App() {
         {/* {currentPage === 'search' && <SearchPage onCocktailSelect={handleCocktailSelect} />} */}
         {currentPage === 'ingredients' && <IngredientsPage />}
         {currentPage === 'inspiration' && <InspirationPage />}
-        {currentPage === 'favourites' && <FavouritePage />}
+        {currentPage === 'favorites' && <FavouritePage />}
         {currentPage === 'settings' && <SettingsPage />}
 
         {currentPage === 'drink' && <DrinkPage cocktail={selectedCocktail} />}

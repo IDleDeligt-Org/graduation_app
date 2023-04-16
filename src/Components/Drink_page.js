@@ -64,4 +64,5 @@ const DrinkPage = ({ cocktail }) => {
   );
 };
 
+
 export default DrinkPage;

@@ -1,6 +1,6 @@
 .App-logo {
     position: fixed;
-    z-index: 1;
+    z-index: 0;
     fill: #0c0c0c;
     width: 90%;
     height: auto;

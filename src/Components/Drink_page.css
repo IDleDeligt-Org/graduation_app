@@ -1,5 +1,6 @@
 h2 {
   padding: 0;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -36,7 +37,6 @@ h2 {
 
 .drink-page-ingredient {
   display: contents;
-  font-size: 1.2em;
 }
 
 .drink-measurement {

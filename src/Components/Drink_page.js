@@ -1,23 +1,43 @@
 import './Drink_page.css';
-import React from 'react';
+import React, { useState } from 'react';
 
 const DrinkPage = ({ cocktail }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
+
   if (!cocktail) {
     return <div>No cocktail selected</div>;
   }
 
   return (
     <div className='drink-page-content'>
-      <img className='drink-page-image' src={cocktail.image} alt={cocktail.name} />
+      <div className='image-container'>
+        <div class="back-button-container">
+          <span class="material-icons back-button">arrow_back</span>
+        </div>
+        <img className='drink-page-image' src={cocktail.image} alt={cocktail.name} />
+      </div>
 
       <div className='drink-page-text'>
-        <h1>{cocktail.name}</h1>
-
-        <div className='drink-page-tags'>
-          <p>{cocktail.tag}</p>
+        <div className='drink-page-header'>
+          <div className='drink-page-title'>
+            <h1>{cocktail.name}</h1>
+            <div className='drink-page-tags'>
+              <p>{cocktail.tag}</p>
+            </div>
+          </div>
+          <span
+            className={`material-icons favorite-icon ${isFavorite ? 'active' : ''}`}
+            onClick={toggleFavorite}
+          >
+            {isFavorite ? 'favorite' : 'favorite_border'}
+          </span>
         </div>
 
-        <div>
+        <div className='dark-gray-box'>
           <h2>Ingredient</h2>
           <div className='drink-page-ingredients'>
             <div className='drink-page-ingredient'>
@@ -35,7 +55,7 @@ const DrinkPage = ({ cocktail }) => {
           </div>
         </div>
 
-        <div className='drink-page-instructions'>
+        <div className='dark-gray-box drink-page-instructions'>
           <h2>Instructions:</h2>
           <p>{cocktail.instruction}</p>
         </div>

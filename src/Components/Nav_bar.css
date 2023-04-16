@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #ffd500ff;
+  background-color: #ffc400;
   transform: translateX(-50%);
 }
 
@@ -20,7 +20,7 @@
   border-radius: 50%;
   font-size: 1em;
   text-align: center;
-  background-color: #ffd500ff;
+  background-color: #ffc400;
   border: 0px;
   display: flex;
   justify-content: center;
@@ -29,7 +29,7 @@
 
 .NavBar button.active {
   background-color: #fff;
-  color: #ffd500ff;
+  color: #ffc400;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -61,7 +61,7 @@
 }
 
 .material-icons.active {
-  color: #ffd500ff; /* Change this to your desired active color */
+  color: #ffc400; /* Change this to your desired active color */
   text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 

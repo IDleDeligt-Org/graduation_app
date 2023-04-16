@@ -48,7 +48,7 @@
     border-radius: 50%;
     font-size: 1rem;
     text-align: center;
-    background-color: #ffc400;
+    background-color: #004d4d;
     border: 0px;
     display: flex;
     justify-content: center;
@@ -57,7 +57,7 @@
 
 .search-btn:active {
     background-color: #fff;
-    border: 3px solid #ffc400;
+    border: 3px solid #004d4d;
 }
 
 .material-icons {
@@ -88,5 +88,5 @@
 }
 
 .material-icons:active {
-    color: #ffc400;
+    color: #004d4d;
 }

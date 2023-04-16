@@ -1,7 +1,6 @@
 h2 {
   padding: 0;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .drink-page-content {
@@ -19,8 +18,59 @@ h2 {
   width: 100%;
 }
 
+.drink-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.drink-page-title {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  padding-right: 20px;
+}
+
+.drink-page-header .favorite-icon {
+  font-size: 34px !important;
+  color: #888;
+  cursor: pointer;
+}
+
+.drink-page-header .favorite-icon.favourite {
+  color: #ffd500ff;
+}
+
+.image-container {
+  position: relative;
+}
+
+.back-button-container {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0000003a;
+}
+
+.back-button-container:active {
+  background-color: #ffd500ff;
+}
+
+.back-button {
+  color: #fff;
+  font-size: 24px;
+}
+
 .drink-page-text {
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
 } 
 
 .drink-page-tags {
@@ -46,4 +96,21 @@ h2 {
 
 .drink-ingredient {
   text-align: left;
+}
+
+.dark-gray-box {
+  background-color: #111;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.dark-gray-box h2 {
+  color: #ddd;
+}
+
+.dark-gray-box p,
+.dark-gray-box .drink-ingredient,
+.dark-gray-box .drink-measurement {
+  color: #ddd;
 }

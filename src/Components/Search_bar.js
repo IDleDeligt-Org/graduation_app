@@ -1,18 +1,24 @@
 import './Search_bar.css';
-import { useState } from "react"
 
-export function SearchBar({ setFilteredCocktails, onSearchInitiated }) { // Add onSearchInitiated prop
-  const [searchText, setSearchText] = useState("");
+
+export function SearchBar({
+  searchText,
+  setSearchText,
+  setFilteredCocktails,
+  onSearchInitiated,
+  triggerSearch,
+}) {
+  
   const url = "https://localhost:7195/api/beverage"
 
   async function handleSearch(event) {
     event.preventDefault();
 
-    onSearchInitiated(); // Call onSearchInitiated when the search is initiated
+    onSearchInitiated();
 
     await fetch(url + "/" + searchText)
       .then((response) => response.json())
-      .then((result) => setFilteredCocktails(result.$values))
+      .then((result) => setFilteredCocktails(result.$values));
   }
 
   function checkSearchText(text) {

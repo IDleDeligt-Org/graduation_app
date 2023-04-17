@@ -12,8 +12,8 @@ import Logo from './Components/Logo';
 
 function App() {
   const [pageState, setPageState] = useState({
-    currentPage: "main",
-    activePage: "main",
+    currentPage: "login",
+    activePage: "login",
     filteredCocktails: [],
     selectedCocktail: null,
     searchInitiated: false
@@ -60,7 +60,6 @@ function App() {
 
       <div className='App-content'>
         {pageState.currentPage === 'login' && <LoginPage />}
-
         {pageState.currentPage === 'main' && <MainPage
           onCocktailSelect={handleCocktailSelect}
           filteredCocktails={pageState.filteredCocktails}
@@ -73,7 +72,6 @@ function App() {
         {pageState.currentPage === 'inspiration' && <InspirationPage />}
         {pageState.currentPage === 'favorites' && <FavouritePage />}
         {pageState.currentPage === 'settings' && <SettingsPage />}
-
         {pageState.currentPage === 'drink' && <DrinkPage navigateBack={navigateBack} cocktail={pageState.selectedCocktail} />}
       </div>
 

@@ -36,7 +36,6 @@ function App() {
         {currentPage === 'login' && <LoginPage />}
 
         {currentPage === 'main' && <MainPage onCocktailSelect={handleCocktailSelect} />}
-        {/* {currentPage === 'search' && <SearchPage onCocktailSelect={handleCocktailSelect} />} */}
         {currentPage === 'ingredients' && <IngredientsPage />}
         {currentPage === 'inspiration' && <InspirationPage />}
         {currentPage === 'favorites' && <FavouritePage />}

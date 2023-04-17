@@ -15,10 +15,6 @@ const Logo = () => (
             viewBox="0 0 309.53058 317.71355"
             version="1.1"
             id="svg5"
-
-        // xml:space="preserve"
-        // xmlns="http://www.w3.org/2000/svg"
-        // xmlns:svg="http://www.w3.org/2000/svg"
         >
             <defs id="defs2" />
             <g

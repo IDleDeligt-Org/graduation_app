@@ -61,7 +61,7 @@
 }
 
 .material-icons.active {
-  color: #004d4d; /* Change this to your desired active color */
+  color: #004d4d;
   text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 

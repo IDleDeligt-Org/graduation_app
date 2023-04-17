@@ -15,8 +15,10 @@ function App() {
     currentPage: "main",
     activePage: "main",
     filteredCocktails: [],
-    selectedCocktail: null
+    selectedCocktail: null,
+    searchInitiated: false
   });
+  const [showQuickstart, setShowQuickstart] = useState(true);
 
   function navigateTo(page) {
     setPageState({
@@ -43,6 +45,14 @@ function App() {
     });
   }
 
+  function handleSearchInitiated() {
+    setShowQuickstart(false);
+    setPageState({
+      ...pageState,
+      searchInitiated: true
+    });
+  }
+
   return (
     <div className="App">
       <Logo />
@@ -51,10 +61,13 @@ function App() {
       <div className='App-content'>
         {pageState.currentPage === 'login' && <LoginPage />}
 
-        {pageState.currentPage === 'main' && <MainPage 
+        {pageState.currentPage === 'main' && <MainPage
           onCocktailSelect={handleCocktailSelect}
           filteredCocktails={pageState.filteredCocktails}
-          setFilteredCocktails={(cocktails) => setPageState({...pageState, filteredCocktails: cocktails})}
+          setFilteredCocktails={(cocktails) => setPageState({ ...pageState, filteredCocktails: cocktails })}
+          onSearchInitiated={handleSearchInitiated}
+          searchInitiated={pageState.searchInitiated}
+          showQuickstart={showQuickstart}
         />}
         {pageState.currentPage === 'ingredients' && <IngredientsPage />}
         {pageState.currentPage === 'inspiration' && <InspirationPage />}

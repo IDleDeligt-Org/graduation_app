@@ -35,7 +35,7 @@ export function SearchBar({
           placeholder='Search...'
         ></input>
       </label>
-      <button type="submit" className="search-btn material-icons">search</button>
+      <button type="submit" className="search-btn material-icons search-icon">search</button>
     </form>
   );
 }

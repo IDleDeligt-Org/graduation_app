@@ -45,6 +45,13 @@ h2 {
   color: #ffd500;
 }
 
+.drink-page-header .favorite-icon:active,
+.drink-page-header .favorite-icon:focus {
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 .image-container {
   position: relative;
 }

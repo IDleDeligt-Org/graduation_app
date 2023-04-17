@@ -52,43 +52,18 @@
     border-radius: 50%;
     font-size: 1rem;
     text-align: center;
-    background-color: #004d4d;
+    background-color: #fff;
     border: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.search-btn:active {
-    background-color: #fff;
-    border: 3px solid #004d4d;
-}
-
-.material-icons {
+.search-bar .search-icon {
     font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
+    font-weight: 700;
     font-size: 28px;
-    color: #fff;
-    /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-
-    /* Support for IE. */
-    font-feature-settings: 'liga';
+    color: #004d4d;
 }
 
 .material-icons:active {

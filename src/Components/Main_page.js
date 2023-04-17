@@ -6,7 +6,7 @@ import { useState } from "react"
 
 const MainPage = ({ onCocktailSelect }) => {
   const [filteredCocktails, setFilteredCocktails] = useState([]);
-  const [showQuickstart, setShowQuickstart] = useState(true); // Add this line for showQuickstart state
+  const [showQuickstart, setShowQuickstart] = useState(true);
 
   return (
     <div className="main-page-container">
@@ -23,7 +23,7 @@ const MainPage = ({ onCocktailSelect }) => {
       <div className="search-bar-container">
         <SearchBar
           setFilteredCocktails={setFilteredCocktails}
-          onSearchInitiated={() => setShowQuickstart(false)} // Add this line to pass onSearchInitiated prop
+          onSearchInitiated={() => setShowQuickstart(false)}
         ></SearchBar>
       </div>
     </div>

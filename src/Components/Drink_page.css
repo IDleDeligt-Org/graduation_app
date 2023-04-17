@@ -78,6 +78,10 @@ h2 {
   font-size: 24px;
 }
 
+.back-button:active {
+  color: #111;
+}
+
 .drink-page-text {
   padding: 10px 20px 20px 20px;
 } 
@@ -108,7 +112,7 @@ h2 {
 }
 
 .dark-gray-box {
-  background-color: #161616;
+  background-color: #222222;
   padding: 15px;
   border-radius: 5px;
   margin-top: 20px;
@@ -121,5 +125,5 @@ h2 {
 .dark-gray-box p,
 .dark-gray-box .drink-ingredient,
 .dark-gray-box .drink-measurement {
-  color: #ddd;
+  color: #bbbbbb;
 }

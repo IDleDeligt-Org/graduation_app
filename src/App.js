@@ -11,13 +11,27 @@ import React, { useState } from 'react';
 import Logo from './Components/Logo';
 
 function App() {
+  const [pageState, setPageSate] = useState({
+    currentPage: "main",
+    activePage: "main",
+    filteredCocktails: [],
+    selectedCocktail: null
+  })
   const [currentPage, setCurrentPage] = useState('main');
+  const [filteredCocktails, setFilteredCocktails] = useState([]);
   const [selectedCocktail, setSelectedCocktail] = useState(null);
   const [activePage, setActivePage] = useState('main');
 
   function navigateTo(page) {
-    setActivePage(page);
-    setCurrentPage(page);
+    setPageSate([...pageState, {activePage: page, currentPage: page}])
+    //setActivePage(page);
+    //setCurrentPage(page);
+  }
+
+  function navigateBack(){
+    setActivePage("main");
+    setCurrentPage("main");
+    setSelectedCocktail(null);
   }
 
   function handleCocktailSelect(cocktail) {
@@ -35,13 +49,16 @@ function App() {
       <div className='App-content'>
         {currentPage === 'login' && <LoginPage />}
 
-        {currentPage === 'main' && <MainPage onCocktailSelect={handleCocktailSelect} />}
+        {currentPage === 'main' && <MainPage 
+          onCocktailSelect={handleCocktailSelect}
+          filteredCocktails={filteredCocktails}
+          setFilteredCocktails={setFilteredCocktails}/>}
         {currentPage === 'ingredients' && <IngredientsPage />}
         {currentPage === 'inspiration' && <InspirationPage />}
         {currentPage === 'favorites' && <FavouritePage />}
         {currentPage === 'settings' && <SettingsPage />}
 
-        {currentPage === 'drink' && <DrinkPage cocktail={selectedCocktail} />}
+        {currentPage === 'drink' && <DrinkPage navigateBack={navigateBack} cocktail={selectedCocktail} />}
       </div>
 
       <div className='App-footer'>

@@ -1,12 +1,14 @@
 import './Drink_page.css';
 import React, { useState } from 'react';
 
-const DrinkPage = ({ cocktail }) => {
+const DrinkPage = ({ cocktail, navigateBack}) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const toggleFavorite = () => {
     setIsFavorite(!isFavorite);
   };
+
+
 
   if (!cocktail) {
     return <div>No cocktail selected</div>;
@@ -16,7 +18,7 @@ const DrinkPage = ({ cocktail }) => {
     <div className='drink-page-content'>
       <div className='image-container'>
         <div class="back-button-container">
-          <span class="material-icons back-button">arrow_back</span>
+          <span class="material-icons back-button" onClick={() => navigateBack()}>arrow_back</span>
         </div>
         <img className='drink-page-image' src={cocktail.image} alt={cocktail.name} />
       </div>

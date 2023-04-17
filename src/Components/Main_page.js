@@ -5,8 +5,7 @@ import MainQuickstart from './Main_Quickstart';
 import { useState } from "react"
 import FavouritePage from './Favourites__page';
 
-const MainPage = ({ onCocktailSelect }) => {
-  const [filteredCocktails, setFilteredCocktails] = useState([]);
+const MainPage = ({ onCocktailSelect, setFilteredCocktails, filteredCocktails}) => {
   const [showQuickstart, setShowQuickstart] = useState(true);
   const [searchText, setSearchText] = useState("");
 

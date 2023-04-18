@@ -2,12 +2,16 @@ import './Main_page.css';
 import { SearchBar } from './Search_bar';
 import CocktailList from './CocktailList';
 import MainQuickstart from './Main_Quickstart';
-import { useState } from "react"
-import FavouritePage from './Favourites__page';
+import React, { useState } from 'react';
 
-const MainPage = ({ onCocktailSelect }) => {
-  const [filteredCocktails, setFilteredCocktails] = useState([]);
-  const [showQuickstart, setShowQuickstart] = useState(true);
+const MainPage = ({
+  onCocktailSelect,
+  setFilteredCocktails,
+  filteredCocktails,
+  onSearchInitiated,
+  searchInitiated,
+  showQuickstart,
+}) => {
   const [searchText, setSearchText] = useState("");
 
   const handleQuickstartSearch = (searchTerm) => {
@@ -19,7 +23,7 @@ const MainPage = ({ onCocktailSelect }) => {
   };
 
   const handleSearch = async (searchTerm) => {
-    setShowQuickstart(false);
+    onSearchInitiated();
 
     const url = "https://localhost:7195/api/beverage";
     await fetch(url + "/" + searchTerm)
@@ -31,14 +35,17 @@ const MainPage = ({ onCocktailSelect }) => {
     <div className="main-page-container">
       <div className="main-page-content">
         {showQuickstart ? (
-          <div className='main-quickstart-widget'>
+          <div className="main-quickstart-widget">
             <MainQuickstart
               onQuickstartClick={handleQuickstartSearch}
               onSearchTriggered={triggerSearch}
             />
           </div>
         ) : (
-          <CocktailList filteredCocktails={filteredCocktails} onCocktailSelect={onCocktailSelect}></CocktailList>
+          <CocktailList
+            filteredCocktails={filteredCocktails}
+            onCocktailSelect={onCocktailSelect}
+          ></CocktailList>
         )}
       </div>
       <div className="search-bar-container">
@@ -46,10 +53,11 @@ const MainPage = ({ onCocktailSelect }) => {
           searchText={searchText}
           setSearchText={setSearchText}
           setFilteredCocktails={setFilteredCocktails}
-          onSearchInitiated={() => setShowQuickstart(false)}
+          onSearchInitiated={() => {
+            onSearchInitiated();
+          }}
           handleSearch={handleSearch}
         ></SearchBar>
-      
       </div>
     </div>
   );

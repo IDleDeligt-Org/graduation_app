@@ -74,7 +74,6 @@ function App() {
         {pageState.currentPage === 'settings' && <SettingsPage />}
         {pageState.currentPage === 'drink' && <DrinkPage navigateBack={navigateBack} cocktail={pageState.selectedCocktail} />}
       </div>
-
       <div className='App-footer'>
         <NavBar navigateTo={navigateTo} activePage={pageState.activePage} />
       </div>

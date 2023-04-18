@@ -40,7 +40,7 @@ function App() {
         {currentPage === 'inspiration' && <InspirationPage />}
         {currentPage === 'favorites' && <FavouritePage />}
         {currentPage === 'settings' && <SettingsPage />}
-
+        
         {currentPage === 'drink' && <DrinkPage cocktail={selectedCocktail} />}
       </div>
 

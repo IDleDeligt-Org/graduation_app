@@ -18,8 +18,13 @@ const MainPage = ({
     setSearchText(searchTerm);
   };
 
-  const triggerSearch = (searchTerm) => {
-    handleSearch(searchTerm);
+  const triggerSearchIngredient = async (searchTerm) => {
+    onSearchInitiated();
+
+    const url = "https://localhost:7195/api/ingredient";
+    await fetch(url + "/" + searchTerm)
+      .then((response) => response.json())
+      .then((result) => setFilteredCocktails(result.$values));
   };
 
   const handleSearch = async (searchTerm) => {
@@ -31,6 +36,15 @@ const MainPage = ({
       .then((result) => setFilteredCocktails(result.$values));
   };
 
+  const triggerSearchNonAlcoholic = async () => {
+    onSearchInitiated();
+
+    const url = "https://localhost:7195/api/ingredient/search/non_alcoholic";
+    await fetch(url )
+      .then((response) => response.json())
+      .then((result) => setFilteredCocktails(result.$values));
+  };
+
   return (
     <div className="main-page-container">
       <div className="main-page-content">
@@ -38,7 +52,8 @@ const MainPage = ({
           <div className="main-quickstart-widget">
             <MainQuickstart
               onQuickstartClick={handleQuickstartSearch}
-              onSearchTriggered={triggerSearch}
+              onSearchTriggered={triggerSearchIngredient}
+              onSearchTriggeredNonAlcoholic={triggerSearchNonAlcoholic}
             />
           </div>
         ) : (

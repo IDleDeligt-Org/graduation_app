@@ -2,7 +2,7 @@ import './Main_page.css';
 import { SearchBar } from './Search_bar';
 import CocktailList from './CocktailList';
 import MainQuickstart from './Main_Quickstart';
-import React, { useState } from 'react';
+import React from 'react';
 
 const MainPage = ({
   onCocktailSelect,
@@ -16,35 +16,28 @@ const MainPage = ({
 }) => {
 
   const triggerQuickstartSearch = (searchText) => {
-    console.log("triggerQuickstartSearch");
     setSearchText(searchText);
   };
 
-  const triggerSearchIngredient = async (searchText) => {
+  const triggerSearch = async (urlPart) => {
     onSearchInitiated();
 
-    const url = "https://localhost:7195/api/ingredient";
-    await fetch(url + "/" + searchText)
+    const baseUrl = "https://localhost:7195/api";
+    await fetch(`${baseUrl}${urlPart}`)
       .then((response) => response.json())
       .then((result) => setFilteredCocktails(result.$values));
   };
 
-  const triggerSearch = async (searchText) => {
-    onSearchInitiated();
-
-    const url = "https://localhost:7195/api/beverage";
-    await fetch(url + "/" + searchText)
-      .then((response) => response.json())
-      .then((result) => setFilteredCocktails(result.$values));
+  const triggerSearchIngredient = (searchText) => {
+    triggerSearch(`/ingredient/${searchText}`);
   };
 
-  const triggerSearchNonAlcoholic = async () => {
-    onSearchInitiated();
+  const triggerSearchBeverage = (searchText) => {
+    triggerSearch(`/beverage/${searchText}`);
+  };
 
-    const url = "https://localhost:7195/api/ingredient/search/non_alcoholic";
-    await fetch(url )
-      .then((response) => response.json())
-      .then((result) => setFilteredCocktails(result.$values));
+  const triggerSearchNonAlcoholic = () => {
+    triggerSearch("/ingredient/search/non_alcoholic");
   };
 
   return (
@@ -74,7 +67,7 @@ const MainPage = ({
           onSearchInitiated={() => {
             onSearchInitiated();
           }}
-          triggerSearch={triggerSearch}
+          triggerSearchBeverage={triggerSearchBeverage}
         ></SearchBar>
       </div>
     </div>

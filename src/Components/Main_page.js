@@ -11,27 +11,29 @@ const MainPage = ({
   onSearchInitiated,
   showQuickstart,
   navigateBackToMain,
+  searchText,
+  setSearchText
 }) => {
-  const [searchText, setSearchText] = useState("");
 
-  const triggerQuickstartSearch = (searchTerm) => {
-    setSearchText(searchTerm);
+  const triggerQuickstartSearch = (searchText) => {
+    console.log("triggerQuickstartSearch");
+    setSearchText(searchText);
   };
 
-  const triggerSearchIngredient = async (searchTerm) => {
+  const triggerSearchIngredient = async (searchText) => {
     onSearchInitiated();
 
     const url = "https://localhost:7195/api/ingredient";
-    await fetch(url + "/" + searchTerm)
+    await fetch(url + "/" + searchText)
       .then((response) => response.json())
       .then((result) => setFilteredCocktails(result.$values));
   };
 
-  const triggerSearch = async (searchTerm) => {
+  const triggerSearch = async (searchText) => {
     onSearchInitiated();
 
     const url = "https://localhost:7195/api/beverage";
-    await fetch(url + "/" + searchTerm)
+    await fetch(url + "/" + searchText)
       .then((response) => response.json())
       .then((result) => setFilteredCocktails(result.$values));
   };

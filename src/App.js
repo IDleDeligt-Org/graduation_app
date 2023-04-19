@@ -16,7 +16,8 @@ function App() {
     activePage: "login",
     filteredCocktails: [],
     selectedCocktail: null,
-    searchInitiated: false
+    searchInitiated: false,
+    searchText: '',
   });
   const [showQuickstart, setShowQuickstart] = useState(true);
 
@@ -33,7 +34,8 @@ function App() {
     setPageState({
       ...pageState,
       activePage: 'main',
-      currentPage: 'main'
+      currentPage: 'main',
+      searchText: '',
     });
   }
 
@@ -52,7 +54,8 @@ function App() {
       ...pageState,
       activePage: "main",
       currentPage: "main",
-      selectedCocktail: null
+      selectedCocktail: null,
+      searchText: '',
     });
   }
 
@@ -64,7 +67,7 @@ function App() {
     });
   }
 
-  function handleSearchInitiated() {
+  function onSearchInitiated() {
     setShowQuickstart(false);
     setPageState({
       ...pageState,
@@ -83,10 +86,12 @@ function App() {
           onCocktailSelect={handleCocktailSelect}
           filteredCocktails={pageState.filteredCocktails}
           setFilteredCocktails={(cocktails) => setPageState({ ...pageState, filteredCocktails: cocktails })}
-          onSearchInitiated={handleSearchInitiated}
+          onSearchInitiated={onSearchInitiated}
           searchInitiated={pageState.searchInitiated}
           showQuickstart={showQuickstart}
           navigateBackToMain={navigateBackToMain}
+          searchText={pageState.searchText}
+          setSearchText={(searchText) => setPageState({ ...pageState, searchText: searchText })}
         />}
         {pageState.currentPage === 'ingredients' && <IngredientsPage />}
         {pageState.currentPage === 'inspiration' && <InspirationPage />}

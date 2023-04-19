@@ -9,8 +9,8 @@ const MainPage = ({
   setFilteredCocktails,
   filteredCocktails,
   onSearchInitiated,
-  searchInitiated,
   showQuickstart,
+  navigateBackToMain,
 }) => {
   const [searchText, setSearchText] = useState("");
 
@@ -60,6 +60,7 @@ const MainPage = ({
           <CocktailList
             filteredCocktails={filteredCocktails}
             onCocktailSelect={onCocktailSelect}
+            navigateBackToMain={navigateBackToMain}
           ></CocktailList>
         )}
       </div>

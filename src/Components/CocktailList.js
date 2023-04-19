@@ -2,7 +2,7 @@ import React from 'react';
 import './CocktailList.css';
 import { MdBrokenImage } from 'react-icons/md';
 
-export default function CocktailList({ filteredCocktails, onCocktailSelect }) {
+export default function CocktailList({ filteredCocktails, onCocktailSelect, navigateBackToMain }) {
     const handleImageLoad = (e) => {
         e.target.style.display = 'block';
         e.target.previousSibling.style.display = 'none';
@@ -15,6 +15,9 @@ export default function CocktailList({ filteredCocktails, onCocktailSelect }) {
 
     return (
         <div className="cocktail-list">
+            <div className="back-button-container">
+                <span className="material-icons back-button" onClick={() => navigateBackToMain()}>arrow_back</span>
+            </div>
             {filteredCocktails.map((cocktail, index) => {
                 return (
                     <div key={index} className="cocktail-item" onClick={() => onCocktailSelect(cocktail)}>

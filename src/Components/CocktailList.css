@@ -52,3 +52,30 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.back-button-container {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0000003a;
+  z-index: 3;
+}
+
+.back-button-container:active {
+  background-color: #ffd500;
+}
+
+.back-button {
+  color: #fff;
+  font-size: 24px;
+}
+
+.back-button:active {
+  color: #111;
+}

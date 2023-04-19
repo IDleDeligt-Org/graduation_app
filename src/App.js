@@ -28,7 +28,26 @@ function App() {
     });
   }
 
+  function navigateToMain() {
+    setShowQuickstart(true);
+    setPageState({
+      ...pageState,
+      activePage: 'main',
+      currentPage: 'main'
+    });
+  }
+
   function navigateBack() {
+    setPageState({
+      ...pageState,
+      activePage: "main",
+      currentPage: "main",
+      selectedCocktail: null
+    });
+  }
+
+  function navigateBackToMain() {
+    setShowQuickstart(true);
     setPageState({
       ...pageState,
       activePage: "main",
@@ -67,6 +86,7 @@ function App() {
           onSearchInitiated={handleSearchInitiated}
           searchInitiated={pageState.searchInitiated}
           showQuickstart={showQuickstart}
+          navigateBackToMain={navigateBackToMain}
         />}
         {pageState.currentPage === 'ingredients' && <IngredientsPage />}
         {pageState.currentPage === 'inspiration' && <InspirationPage />}
@@ -75,7 +95,7 @@ function App() {
         {pageState.currentPage === 'drink' && <DrinkPage navigateBack={navigateBack} cocktail={pageState.selectedCocktail} />}
       </div>
       <div className='App-footer'>
-        <NavBar navigateTo={navigateTo} activePage={pageState.activePage} />
+        <NavBar navigateTo={navigateTo} navigateToMain={navigateToMain} activePage={pageState.activePage} />
       </div>
     </div>
   );

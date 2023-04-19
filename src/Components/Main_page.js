@@ -14,7 +14,7 @@ const MainPage = ({
 }) => {
   const [searchText, setSearchText] = useState("");
 
-  const handleQuickstartSearch = (searchTerm) => {
+  const triggerQuickstartSearch = (searchTerm) => {
     setSearchText(searchTerm);
   };
 
@@ -27,7 +27,7 @@ const MainPage = ({
       .then((result) => setFilteredCocktails(result.$values));
   };
 
-  const handleSearch = async (searchTerm) => {
+  const triggerSearch = async (searchTerm) => {
     onSearchInitiated();
 
     const url = "https://localhost:7195/api/beverage";
@@ -51,7 +51,7 @@ const MainPage = ({
         {showQuickstart ? (
           <div className="main-quickstart-widget">
             <MainQuickstart
-              onQuickstartClick={handleQuickstartSearch}
+              onQuickstartClick={triggerQuickstartSearch}
               onSearchTriggered={triggerSearchIngredient}
               onSearchTriggeredNonAlcoholic={triggerSearchNonAlcoholic}
             />
@@ -72,7 +72,7 @@ const MainPage = ({
           onSearchInitiated={() => {
             onSearchInitiated();
           }}
-          handleSearch={handleSearch}
+          triggerSearch={triggerSearch}
         ></SearchBar>
       </div>
     </div>

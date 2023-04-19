@@ -6,12 +6,11 @@ export function SearchBar({
   setSearchText,
   setFilteredCocktails,
   onSearchInitiated,
-  triggerSearch,
 }) {
   
   const url = "https://localhost:7195/api/beverage"
 
-  async function handleSearch(event) {
+  async function triggerSearch(event) {
     event.preventDefault();
 
     onSearchInitiated();
@@ -26,7 +25,7 @@ export function SearchBar({
   }
 
   return (
-    <form className='search-bar' onSubmit={handleSearch}>
+    <form className='search-bar' onSubmit={triggerSearch}>
       <label className='search-field'>
         <input
           value={searchText}

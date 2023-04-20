@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 
 import './Login_page.css';
 
-const Login_page = () => {
+const Login_page = ({
+  navigateBackToMain,
+}) => {
   const [selectedUser, setSelectedUser] = useState('');
   const [password, setPassword] = useState('');
 
@@ -57,7 +59,7 @@ const Login_page = () => {
             readOnly
             placeholder="Password"
           />
-          <button className='login-button' type="submit">Login</button>
+          <button className='login-button' type="submit" onClick={navigateBackToMain}>Login</button>
         </form>
       </div>
     </div>

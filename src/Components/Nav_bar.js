@@ -29,7 +29,7 @@ const NavBar = ({ navigateTo, navigateToMain, activePage }) => {
         <span className={`material-icons ${activePage === "favorites" ? "active" : ""}`}>favorite_border</span>
       </button>
       <button
-        onClick={() => navigateTo("settings")}
+        onClick={() => navigateTo("login")}
         className={activePage === "settings" ? "active" : ""}
       >
         <span className={`material-icons ${activePage === "settings" ? "active" : ""}`}>settings</span>

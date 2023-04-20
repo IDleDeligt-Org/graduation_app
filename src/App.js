@@ -115,9 +115,7 @@ function App() {
           addRandomList={addRandomList}
           randomCocktails={pageState.randomCocktails}
         />}
-        {pageState.currentPage === 'ingredients' && <CreateDrinkPage 
-        navigateBackToMain={navigateBackToMain}
-        />}
+        {pageState.currentPage === 'ingredients' && <CreateDrinkPage />}
         {pageState.currentPage === 'inspiration' && <InspirationPage />}
         {pageState.currentPage === 'favorites' && <FavouritePage
           setFavoriteList={setFavoriteList}

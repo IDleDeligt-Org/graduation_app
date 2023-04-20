@@ -20,11 +20,11 @@ const MainPage = ({
   };
 
   const triggerSearch = async (urlPart) => {
+    console.log(urlPart);
     onSearchInitiated();
     const baseUrl = "https://sipster.azurewebsites.net/api";
     const response = await fetch(`${baseUrl}${urlPart}`);
     const result = await response.json();
-  
     return result.$values;
   };
 
@@ -36,6 +36,10 @@ const MainPage = ({
   const triggerSearchBeverage = async (searchText) => {
     const beverages = await triggerSearch(`/beverage/${searchText}`);
     return beverages;
+  };
+
+  const triggerSearchNonAlcoholic = () => {
+    triggerSearch("/ingredient/search/non_alcoholic");
   };
 
   const triggerSearchAll = async (searchText) => {
@@ -58,11 +62,6 @@ const MainPage = ({
           })
 
     setFilteredCocktails(uniqueResults);
-  };
-  
-
-  const triggerSearchNonAlcoholic = () => {
-    triggerSearch("/ingredient/search/non_alcoholic");
   };
 
   return (
@@ -92,7 +91,6 @@ const MainPage = ({
           onSearchInitiated={() => {
             triggerSearchAll(searchText);
           }}
-          triggerSearchBeverage={triggerSearchBeverage}
           triggerSearchAll={triggerSearchAll}
         ></SearchBar>
       </div>

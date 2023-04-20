@@ -4,8 +4,6 @@ import './Search_bar.css';
 export function SearchBar({
   searchText,
   setSearchText,
-  triggerSearchBeverage,
-  triggerSearchIngredient,
   triggerSearchAll,
 }) {
 

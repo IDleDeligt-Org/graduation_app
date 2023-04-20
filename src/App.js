@@ -91,20 +91,22 @@ function App() {
         <Logo />
       </div>
       <div className="App-header"></div>
-
+      
       <div className='App-content'>
         {pageState.currentPage === 'login' && <LoginPage 
           navigateBackToMain={navigateBackToMain}/>}
         {pageState.currentPage === 'main' && <MainPage
           onCocktailSelect={handleCocktailSelect}
           filteredCocktails={pageState.filteredCocktails}
-          setFilteredCocktails={(cocktails) => setPageState({ ...pageState, filteredCocktails: cocktails })}
+          setFilteredCocktails=
+          {(cocktails) => setPageState({ ...pageState, filteredCocktails: cocktails })}
           onSearchInitiated={onSearchInitiated}
           searchInitiated={pageState.searchInitiated}
           showQuickstart={showQuickstart}
           navigateBackToMain={navigateBackToMain}
           searchText={pageState.searchText}
-          setSearchText={(searchText) => setPageState({ ...pageState, searchText: searchText })}
+          setSearchText=
+          {(searchText) => setPageState({ ...pageState, searchText: searchText })}
         />}
         {pageState.currentPage === 'ingredients' && <CreateDrinkPage />}
         {pageState.currentPage === 'inspiration' && <InspirationPage />}

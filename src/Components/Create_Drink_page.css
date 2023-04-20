@@ -1,0 +1,129 @@
+h2 {
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.drink-page-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.drink-page-image {
+  margin: 0;
+  width: 100%;
+}
+
+.drink-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.drink-page-title {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  padding-right: 20px;
+}
+
+.drink-page-header .favorite-icon {
+  font-size: 34px !important;
+  color: #888;
+  cursor: pointer;
+}
+
+.drink-page-header .favorite-icon.material-icons.active {
+  color: #ffd500;
+}
+
+.drink-page-header .favorite-icon:active,
+.drink-page-header .favorite-icon:focus {
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.image-container {
+  position: relative;
+}
+
+.back-button-container {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0000003a;
+}
+
+.back-button-container:active {
+  background-color: #ffd500;
+}
+
+.back-button {
+  color: #fff;
+  font-size: 24px;
+}
+
+.back-button:active {
+  color: #111;
+}
+
+.drink-page-text {
+  padding: 10px 20px 20px 20px;
+} 
+
+.drink-page-tags {
+  font-weight: 100;
+  font-style: italic;
+}
+
+.drink-page-ingredients {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.drink-page-ingredient {
+  display: contents;
+}
+
+.drink-measurement {
+  text-align: right;
+  margin-right: 5px;
+}
+
+.drink-ingredient {
+  text-align: left;
+}
+
+.dark-gray-box {
+  background-color: #222222;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.dark-gray-box h2 {
+  color: #ddd;
+}
+
+.dark-gray-box p,
+.dark-gray-box .drink-ingredient,
+.dark-gray-box .drink-measurement {
+  color: #bbbbbb;
+}

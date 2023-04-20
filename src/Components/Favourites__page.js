@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 export default function FavouritePage({ favoriteList, addFavoriteList }) {
 
-  const url = "https://localhost:7195/api/Favorite/user/"
+  const url = "https://sipster.azurewebsites.net/api/Favorite/user/"
 
   useEffect(() => {
     async function fetchFavorites() {
@@ -11,18 +11,28 @@ export default function FavouritePage({ favoriteList, addFavoriteList }) {
       .then((result) => addFavoriteList(result.$values))
     }
     fetchFavorites();
-  }, [addFavoriteList]);
+  }, []);
+
+  function mapBeverages() {
+    
+  }
+
+  function mapCocktail(){
+
+  }
 
     return (
       <div>
         {favoriteList && favoriteList.map((favoriteBeverage, index) => {
-          return (
-            <div key={index}>
-              {favoriteBeverage.name}
-            </div>
-          )
-        })}
-        
+          favoriteBeverage.map((cocktail) => {
+            console.log(cocktail.name)
+            return ( 
+              <div key={index}>
+                <span style={{color: "Black"}}>{cocktail.name}</span>
+              </div>
+            )
+          })})
+        }
       </div>
     );
 };

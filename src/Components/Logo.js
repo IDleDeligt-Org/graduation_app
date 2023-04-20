@@ -21,7 +21,7 @@ const Logo = () => (
                 id="layer1"
                 transform="translate(21.018412,96.879156)">
                 <path style={{
-                    fill: "#030303",
+                    fill: "#ffffff40",
                     fillOpacity: 1,
                     stroke: "none",
                     strokeWidth: 0.264583,

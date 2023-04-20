@@ -30,7 +30,7 @@
 .NavBar button.active {
   background-color: #fff;
   color: #004d4d;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 2px #002929;
 }
 
 .material-icons {
@@ -39,7 +39,7 @@
   font-style: normal;
   font-size: 28px;
   color: #fff;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  text-shadow: 1px 1px 1px #002929;
 
   /* Preferred icon size */
   display: inline-block;
@@ -62,7 +62,7 @@
 
 .material-icons.active {
   color: #004d4d;
-  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+  text-shadow: 0px 0px 0px transparent;
 }
 
 @media screen and (min-width: 900px) {

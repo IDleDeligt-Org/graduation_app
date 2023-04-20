@@ -8,7 +8,7 @@ const NavBar = ({ navigateTo, navigateToMain, activePage }) => {
         onClick={() => navigateTo("ingredients")}
         className={activePage === "ingredients" ? "active" : ""}
       >
-        <span className={`material-icons ${activePage === "ingredients" ? "active" : ""}`}>liquor</span>
+        <span className={`material-icons ${activePage === "ingredients" ? "active" : ""}`}>blender</span>
       </button>
       <button
         onClick={() => navigateTo("inspiration")}

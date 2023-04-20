@@ -14,27 +14,19 @@ export default function FavouritePage({ favoriteList, addFavoriteList }) {
     fetchFavorites();
   }, []);
 
-  function mapBeverages() {
-    console.log("mapBeverages called");
-    return (
-      <div>
-        {favoriteList.map((favoriteBeverage, index) => (
-          <div key={index}>{mapCocktail(favoriteBeverage)}</div>
-        ))}
-      </div>
-    )
-  }  
+  function renderCocktails() {
+    // Flatten the array
+    const flattenedBeverages = favoriteList.flat();
 
-  function mapCocktail(favoriteBeverage){
-    return favoriteBeverage.map((cocktail, index) => (
+    // Render the cocktails
+    return flattenedBeverages.map((cocktail, index) => (
       <div key={index} style={{color: "Black"}}>{cocktail.name}</div>
     ))
   }
-  
 
   return (
     <div>
-      {mapBeverages()}
+      {renderCocktails()}
     </div>
-  );  
+  );
 };

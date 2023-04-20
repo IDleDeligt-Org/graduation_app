@@ -2,7 +2,7 @@ import './App.css';
 import LoginPage from './Components/Login_page';
 import MainPage from './Components/Main_page';
 import DrinkPage from './Components/Drink_page';
-import IngredientsPage from './Components/Ingredients_page';
+// import IngredientsPage from './Components/Ingredients_page';
 import InspirationPage from './Components/Inspiration_page';
 import FavouritePage from './Components/Favourites__page';
 import SettingsPage from './Components/Settings_page';
@@ -17,8 +17,8 @@ function App() {
     currentPage: "login",
     activePage: "login",
     filteredCocktails: [],
-    byNameCocktails: [],
-    byIngredientCocktails: [],
+    // byNameCocktails: [],
+    // byIngredientCocktails: [],
     selectedCocktail: null,
     searchInitiated: false,
     searchText: '',
@@ -86,13 +86,19 @@ function App() {
     setFavoriteList(prevFavoriteList => [...prevFavoriteList, item]);
   }
   
-  function setByNameCocktails(data){
-    setByNameCocktails(data);
-  }
+  // function setByNameCocktails(data){
+  //   setPageState({
+  //     ...pageState,
+  //     setByNameCocktails: data,
+  //   });
+  // }
   
-  function setByIngredientCocktails(data){
-    setByNameCocktails(data);
-  }
+  // function setByIngredientCocktails(data){
+  //   setPageState({
+  //     ...pageState,
+  //     setByIngredientCocktails: data,
+  //   });
+  // }
 
   return (
     <div className="App">
@@ -107,10 +113,10 @@ function App() {
           onCocktailSelect={handleCocktailSelect}
           filteredCocktails={pageState.filteredCocktails}
           setFilteredCocktails={(cocktails) => setPageState({ ...pageState, filteredCocktails: cocktails })}
-          byNameCocktails={pageState.byNameCocktails}
-          setByNameCocktails={setByNameCocktails}
-          byIngredientCocktails={pageState.byIngredientCocktails}
-          setByIngredientCocktails={setByIngredientCocktails}
+          // byNameCocktails={pageState.byNameCocktails}
+          // setByNameCocktails={setByNameCocktails}
+          // byIngredientCocktails={pageState.byIngredientCocktails}
+          // setByIngredientCocktails={setByIngredientCocktails}
           onSearchInitiated={onSearchInitiated}
           searchInitiated={pageState.searchInitiated}
           showQuickstart={showQuickstart}

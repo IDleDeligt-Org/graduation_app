@@ -42,23 +42,23 @@ const MainPage = ({
     return beverages;
   };
 
-  // const triggerSearchAll = async (searchText) => {
-  //   onSearchInitiated();
+  const triggerSearchAll = async (searchText) => {
+    onSearchInitiated();
 
-  //   const resultBeverages = triggerSearchBeverage(searchText);
-  //   const resultIngredients = triggerSearchIngredient(searchText);
+    const resultBeverages = triggerSearchBeverage(searchText);
+    const resultIngredients = triggerSearchIngredient(searchText);
 
-  //   const [ingredients, beverages] = await Promise.all([
-  //     resultBeverages,
-  //     resultIngredients,
-  //   ]);
+    const [ingredients, beverages] = await Promise.all([
+      resultBeverages,
+      resultIngredients,
+    ]);
 
-  //   const resultCombined = [...new Set([...beverages, ...ingredients])];
+    const resultCombined = [...new Set([...beverages, ...ingredients])];
 
-  //   setFilteredCocktails(resultCombined);
-  // };
+    setFilteredCocktails(resultCombined);
+  };
 
-  // // WORK IN PROGREE UNIQUE RECIPE SEARCH RESULTS
+  // // // WORK IN PROGREE UNIQUE RECIPE SEARCH RESULTS
   // const triggerSearchAll = async (searchText) => {
   //   onSearchInitiated();
   
@@ -69,7 +69,6 @@ const MainPage = ({
   //     resultIngredients,
   //     resultBeverages,
   //   ]);
-    
     
   //   const combinedList = [...new Set([...ingredients, ...beverages])];
   //   const seen = new Set();
@@ -115,7 +114,7 @@ const MainPage = ({
           setSearchText={setSearchText}
           setFilteredCocktails={setFilteredCocktails}
           onSearchInitiated={() => {
-    triggerSearchAll(searchText);
+            triggerSearchAll(searchText);
           }}
           triggerSearchBeverage={triggerSearchBeverage}
           triggerSearchAll={triggerSearchAll}

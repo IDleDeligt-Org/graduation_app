@@ -2,40 +2,40 @@ import './Create_Drink_page.css';
 import React, { useEffect, useState } from 'react';
 import glassTypes from '../Data/glassTypes';
 
-const CreateDrinkPage = ({navigateBack}) => {
+const CreateDrinkPage = ({ navigateBack }) => {
   const [imageUrl, setImageUrl] = useState("");
   const [cocktailName, setCocktailName] = useState("");
   const [cocktailTag, setCocktailTag] = useState("");
   const [instruction, setInstruction] = useState("");
-  const [ingredientsFields, setIngredientsFields] = useState([{ingredientId: 0, measurement: ""}]);
+  const [ingredientsFields, setIngredientsFields] = useState([{ ingredientId: 0, measurement: "" }]);
   const [ingredientsList, setIngredientsList] = useState([{}]);
   const [glassType, setGlassType] = useState(0);
   const [alcoholic, setAlcoholic] = useState(false);
   const [videoUrl, setVideoUrl] = useState("");
 
   const addFields = (event) => {
-      let newField = {ingredientId: 0, measurement: ""};
-      setIngredientsFields([...ingredientsFields, newField]);
-      event.preventDefault();
+    let newField = { ingredientId: 0, measurement: "" };
+    setIngredientsFields([...ingredientsFields, newField]);
+    event.preventDefault();
   }
 
   const handleAlcoholicChange = () => {
     setAlcoholic(true);
   }
 
-  const handleNonAlcoholicChange = () =>{
+  const handleNonAlcoholicChange = () => {
     setAlcoholic(false);
   }
 
   const handleFormIngredientIdChange = (event, index) => {
-    const ingredientId  = event.target.value;
+    const ingredientId = event.target.value;
     let data = [...ingredientsFields];
     data[index].ingredientId = ingredientId
     setIngredientsFields(data);
   };
 
   const handleFormMeasurementChange = (event, index) => {
-    const  measurement  = event.target.value;
+    const measurement = event.target.value;
     let data = [...ingredientsFields];
     data[index].measurement = measurement
     setIngredientsFields(data);
@@ -44,17 +44,17 @@ const CreateDrinkPage = ({navigateBack}) => {
   const handleFormGlassChange = (event) => {
     setGlassType(parseInt(event.target.value))
   }
-  
+
   const mapIngredients = () => {
     const filteredIngredients = ingredientsList.filter((ingredient) => {
       return ingredientsFields.some((field) => field.ingredientId === ingredient.ingredientId);
     });
-  
+
     const mappedIngredients = filteredIngredients.map((ingredientsFields) => {
       const ingredientdata = ingredientsList.find(
         (ingredient) => ingredient.ingredientId === (ingredientsFields.ingredientId)
       );
-  
+
       return {
         "beverageIngredientId": 0,
         "beverageId": 0,
@@ -71,7 +71,7 @@ const CreateDrinkPage = ({navigateBack}) => {
         }
       };
     });
-  
+
     return mappedIngredients;
   };
 
@@ -105,15 +105,15 @@ const CreateDrinkPage = ({navigateBack}) => {
       console.error("Error:", error);
     }
     console.log("Function execution finished.");
-    
+
     // Log the raw response body as text
     if (response) {
       const rawResponse = await response.text();
       console.log("Raw response:", rawResponse);
     }
   };
-  
-  
+
+
   // const validateUrl = (url, setStateFunc) => {
   //   setStateFunc(url.replace(/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w.-]*)*\/?$/, ''));
   // }
@@ -121,108 +121,115 @@ const CreateDrinkPage = ({navigateBack}) => {
   useEffect(() => {
     async function fetchIngredients() {
       await fetch("https://sipster.azurewebsites.net/api/ingredient/local/all")
-      .then((response) => response.json())
-      .then((result) => setIngredientsList(result.$values))
+        .then((response) => response.json())
+        .then((result) => setIngredientsList(result.$values))
     }
     fetchIngredients();
   }, []);
 
   return (
     <div className='create-drink-page-content'>
-      <form>
-          <div className='create-image-container'>
-            <div className="back-button-container">
-              <span className="material-icons back-button" onClick={() => navigateBack()}>arrow_back</span>
-            </div>
-            <img className='create-drink-page-image' src={imageUrl} alt={""} />
-            <input type="text" value={imageUrl} 
-                    placeholder="Enter Image Url"
-                    onChange={(e) => setImageUrl(e.target.value)}/> 
-          </div> 
+      <h1>Create cocktail</h1>
 
-          <div className='create-drink-page-text'>
-            <div className='create-drink-page-header'>
-              <div className='create-drink-page-title'>
-                    <input type="text" value={cocktailName} 
-                            placeholder ="Drink name..." 
-                            onChange={(e) => setCocktailName(e.target.value)}
-                            maxLength={50}
-                            required></input>
-                <div className='create-drink-page-tags'>
-                    <input type="text" value={cocktailTag} 
-                            placeholder="Describe your cocktail..." 
-                            onChange={(e) => setCocktailTag(e.target.value)}
-                            maxLength={100} required></input>
+      <form>
+        <div className='create-drink-page-text'>
+          <div className='create-drink-page-header'>
+
+            <div className='create-drink-page-ingredients'>
+              <h2>Info</h2>
+              <input type="text" value={cocktailName}
+                placeholder="Cocktail name..."
+                onChange={(e) => setCocktailName(e.target.value)}
+                maxLength={50}
+                required></input>
+              <div className='create-drink-page-tags'>
+                <input type="text" value={cocktailTag}
+                  placeholder="Describe your cocktail..."
+                  onChange={(e) => setCocktailTag(e.target.value)}
+                  maxLength={100} required></input>
+              </div>
+              <div className='create-image-container'>
+                <div className="back-button-container">
+                  <span className="material-icons back-button" onClick={() => navigateBack()}>arrow_back</span>
                 </div>
+                <img className='create-drink-page-image' src={imageUrl} alt={""} />
+                <input type="text" value={imageUrl}
+                  placeholder="Enter Image Url"
+                  onChange={(e) => setImageUrl(e.target.value)} />
               </div>
             </div>
+            
+          </div>
 
-            <div className='create-dark-gray-box'>
+          <div className='create-dark-gray-box'>
+            <div className='create-drink-page-ingredients'>
               <h2>Ingredient</h2>
-              <div className='create-drink-page-ingredients'>
-                <div className='create-drink-page-ingredient'>
-                  <select className='create-drink-measurement' defaultValue="default" 
-                          onChange={(event) => handleFormGlassChange(event)} required>
-                    <option value="default" disabled>Pick the glasstype</option>
-                        {glassTypes.map((glass)=>{
-                          return(
-                            <option key={glass.Value} value={glass.Value}>
-                              {glass.Name}
-                            </option>
-                          )
-                        })}
-                  </select>
-                </div>
-                <div className='create-drink-page-ingredient'> 
-                  {ingredientsFields.map((ingredientField, index) => {
-                    return(
-                      <div key={index}>
-                        <select name={ingredientField} className='create-drink-ingredient' defaultValue="default" 
-                          onChange={(event) =>handleFormIngredientIdChange(event, index)} required>
-                          <option value="default" disabled>Pick your ingredient</option>
-                            {ingredientsList ? ingredientsList.map((ingredient)=>{
-                              return(
-                                <option key={ingredient.ingredientId + ingredient.name} value={ingredient.ingredientId} >
-                                  {ingredient.name}
-                                </option>
-                              )
-                            }) : null}
-                        </select>
-                        <input type="text"
-                            placeholder ="Measure of ingredient..." 
-                            onChange={(event) =>handleFormMeasurementChange(event, index)}
-                            maxLength={50}
-                            className='create-drink-measurement'
-                            name={ingredientField} required></input>
-                      </div>
+              <div className='create-drink-page-ingredient'>
+                <select className='create-drink-measurement' defaultValue="default"
+                  onChange={(event) => handleFormGlassChange(event)} required>
+                  <option value="default" disabled>Pick the glasstype</option>
+                  {glassTypes.map((glass) => {
+                    return (
+                      <option key={glass.Value} value={glass.Value}>
+                        {glass.Name}
+                      </option>
                     )
                   })}
-                  <button onClick={(event) => addFields(event)}>Add more ingredients</button>
-                </div>
-                <div>
-                  <label>Contains alcohol?
-                    <label> Yes
-                      <input type='radio' name='alcohol' value='yes' onChange={handleAlcoholicChange}></input>
-                    </label>
-                    <label>No
-                      <input type='radio' name='alcohol' value='No' onChange={handleNonAlcoholicChange}></input>
-                    </label>
-                  </label>
-                </div>
-                <div>
-                <input type="text" value={videoUrl} 
-                    placeholder="Enter Video Url"
-                    onChange={(e) => setVideoUrl(e.target.value)} />
-                </div>
+                </select>
               </div>
-            </div>
-            <div className='create-dark-gray-box create-drink-page-instructions'>
-                  <input type="text" value={instruction} 
-                        onChange={(e) => setInstruction(e.target.value)}
-                        maxLength={1500} 
-                        placeholder="Enter your description of how to make your cocktail..." required/>
+              <div className='create-drink-page-ingredient'>
+                {ingredientsFields.map((ingredientField, index) => {
+                  return (
+                    <div key={index}>
+                      <select name={ingredientField} className='create-drink-ingredient' defaultValue="default"
+                        onChange={(event) => handleFormIngredientIdChange(event, index)} required>
+                        <option value="default" disabled>Pick your ingredient</option>
+                        {ingredientsList ? ingredientsList.map((ingredient) => {
+                          return (
+                            <option key={ingredient.ingredientId + ingredient.name} value={ingredient.ingredientId} >
+                              {ingredient.name}
+                            </option>
+                          )
+                        }) : null}
+                      </select>
+                      <input type="text"
+                        placeholder="Measure of ingredient..."
+                        onChange={(event) => handleFormMeasurementChange(event, index)}
+                        maxLength={50}
+                        className='create-drink-measurement'
+                        name={ingredientField} required></input>
+                    </div>
+                  )
+                })}
+                <button onClick={(event) => addFields(event)}>Add more ingredients</button>
+              </div>
+              <div>
+                <label>Contains alcohol?
+                  <label> Yes
+                    <input type='radio' name='alcohol' value='yes' onChange={handleAlcoholicChange}></input>
+                  </label>
+                  <label>No
+                    <input type='radio' name='alcohol' value='No' onChange={handleNonAlcoholicChange}></input>
+                  </label>
+                </label>
+              </div>
+
             </div>
           </div>
+          <div className='create-dark-gray-box create-drink-page-instructions'>
+            <h2>Instructions</h2>
+            <input type="text" value={instruction}
+              onChange={(e) => setInstruction(e.target.value)}
+              maxLength={1500}
+              placeholder="Enter your description of how to make your cocktail..." required />
+            <div>
+              <br /><p>Video, optional</p>
+              <input type="text" value={videoUrl}
+                placeholder="Enter Video Url"
+                onChange={(e) => setVideoUrl(e.target.value)} />
+            </div>
+          </div>
+        </div>
         <button onClick={(event) => handleSubmit(event)}>Add cocktail</button>
       </form>
     </div>
@@ -230,5 +237,3 @@ const CreateDrinkPage = ({navigateBack}) => {
 };
 
 export default CreateDrinkPage;
-
- 

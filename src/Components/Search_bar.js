@@ -9,7 +9,7 @@ export function SearchBar({
   triggerSearch,
 }) {
   
-  const url = "https://localhost:7195/api/beverage"
+  const url = "https://localhost:7195/api/beverage/"
 
   async function handleSearch(event) {
     event.preventDefault();

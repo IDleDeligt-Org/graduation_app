@@ -9,6 +9,7 @@ import SettingsPage from './Components/Settings_page';
 import NavBar from './Components/Nav_bar';
 import React, { useState } from 'react';
 import Logo from './Components/Logo';
+import CreateDrinkPage from './Components/Create_drink_page';
 
 function App() {
   const [pageState, setPageState] = useState({
@@ -68,7 +69,7 @@ function App() {
           searchInitiated={pageState.searchInitiated}
           showQuickstart={showQuickstart}
         />}
-        {pageState.currentPage === 'ingredients' && <IngredientsPage />}
+        {pageState.currentPage === 'ingredients' && <CreateDrinkPage />}
         {pageState.currentPage === 'inspiration' && <InspirationPage />}
         {pageState.currentPage === 'favorites' && <FavouritePage />}
         {pageState.currentPage === 'settings' && <SettingsPage />}

@@ -30,7 +30,7 @@ const MainPage = ({
   const handleSearch = async (searchTerm) => {
     onSearchInitiated();
 
-    const url = "https://localhost:7195/api/beverage";
+    const url = "https://localhost:7195/api/beverage/";
     await fetch(url + "/" + searchTerm)
       .then((response) => response.json())
       .then((result) => setFilteredCocktails(result.$values));

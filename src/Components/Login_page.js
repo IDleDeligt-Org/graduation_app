@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import LoginLogo from './Login_logo';
 import './Login_page.css';
 
 const Login_page = ({
@@ -29,7 +29,7 @@ const Login_page = ({
   return (
     <div className="login-page">
       <div className='login-page-header'>
-        
+        <LoginLogo />
         <h1 className="title">sipster</h1>
       </div>
       <div className='login-page-input'>

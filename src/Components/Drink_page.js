@@ -25,8 +25,7 @@ const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => 
     })
 
     .then((response) => response.json())
-    .then((cocktail) => addFavoriteList((cocktail.$values)))
-    .then((console.log(favoriteList)))
+    .then((cocktail) => addFavoriteList((cocktail)))
   }
 
   const toggleFavorite = () => {

@@ -82,7 +82,7 @@ function App() {
   }
 
   function addFavoriteList(item) {
-    setFavoriteList(prevFavoriteList => [...prevFavoriteList, item]);
+    setFavoriteList([...favoriteList, item]);    
   }
   
   return (

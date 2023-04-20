@@ -1,25 +1,26 @@
 import { async } from "q";
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import DrinkPage from "./Drink_page";
+import App from "../App";
 
-export default function FavouritePage(){
-  const [favoriteList, setFavoriteList] = useState([]);
-  const url = "https://localhost:7195/api/Favorite/user/" //bruker user2, må endres
+export default function FavouritePage({ favoriteList, addFavoriteList }) {
+
+  const url = "https://localhost:7195/api/Favorite/user/"
 
   useEffect(() => {
     async function fetchFavorites() {
       await fetch(url + 2)
       .then((response) => response.json())
-      .then((result) => setFavoriteList(result.$values))
+      .then((result) => addFavoriteList(result.$values))
     }
     fetchFavorites();
   }, []);
 
     return (
       <div>
-        {favoriteList.map((favoriteBeverage, index) => {
+        {favoriteList && favoriteList.map((favoriteBeverage, index) => {
           return (
-            <div>
+            <div key={index}>
               {favoriteBeverage.name}
             </div>
           )

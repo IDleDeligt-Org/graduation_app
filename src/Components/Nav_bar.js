@@ -1,7 +1,7 @@
 import React from 'react';
 import './Nav_bar.css';
 
-const NavBar = ({ navigateTo, activePage }) => {
+const NavBar = ({ navigateTo, navigateToMain, activePage }) => {
   return (
     <div className="NavBar">
       <button
@@ -17,7 +17,7 @@ const NavBar = ({ navigateTo, activePage }) => {
         <span className={`material-icons ${activePage === "inspiration" ? "active" : ""}`}>lightbulb_outline</span>
       </button>
       <button
-        onClick={() => navigateTo("main")}
+        onClick={() => navigateToMain()}
         className={activePage === "main" ? "active" : ""}
       >
         <span className={`material-icons ${activePage === "main" ? "active" : ""}`}>local_bar</span>

@@ -12,20 +12,35 @@ import Logo from './Components/Logo';
 import CreateDrinkPage from './Components/Create_drink_page';
 
 function App() {
+
   const [pageState, setPageState] = useState({
     currentPage: "login",
     activePage: "login",
     filteredCocktails: [],
     selectedCocktail: null,
-    searchInitiated: false
+    searchInitiated: false,
+    searchText: '',
   });
+
   const [showQuickstart, setShowQuickstart] = useState(true);
+
+  const [favoriteList, setFavoriteList] = useState([]);
 
   function navigateTo(page) {
     setPageState({
       ...pageState,
       activePage: page,
       currentPage: page
+    });
+  }
+
+  function navigateToMain() {
+    setShowQuickstart(true);
+    setPageState({
+      ...pageState,
+      activePage: 'main',
+      currentPage: 'main',
+      searchText: '',
     });
   }
 
@@ -38,6 +53,17 @@ function App() {
     });
   }
 
+  function navigateBackToMain() {
+    setShowQuickstart(true);
+    setPageState({
+      ...pageState,
+      activePage: "main",
+      currentPage: "main",
+      selectedCocktail: null,
+      searchText: '',
+    });
+  }
+
   function handleCocktailSelect(cocktail) {
     setPageState({
       ...pageState,
@@ -46,13 +72,18 @@ function App() {
     });
   }
 
-  function handleSearchInitiated() {
+  function onSearchInitiated() {
     setShowQuickstart(false);
     setPageState({
       ...pageState,
       searchInitiated: true
     });
   }
+
+  function addFavoriteList(item) {
+    setFavoriteList(prevFavoriteList => [...prevFavoriteList, item]);
+  }
+  
 
   return (
     <div className="App">
@@ -65,18 +96,29 @@ function App() {
           onCocktailSelect={handleCocktailSelect}
           filteredCocktails={pageState.filteredCocktails}
           setFilteredCocktails={(cocktails) => setPageState({ ...pageState, filteredCocktails: cocktails })}
-          onSearchInitiated={handleSearchInitiated}
+          onSearchInitiated={onSearchInitiated}
           searchInitiated={pageState.searchInitiated}
           showQuickstart={showQuickstart}
+          navigateBackToMain={navigateBackToMain}
+          searchText={pageState.searchText}
+          setSearchText={(searchText) => setPageState({ ...pageState, searchText: searchText })}
         />}
         {pageState.currentPage === 'ingredients' && <CreateDrinkPage />}
         {pageState.currentPage === 'inspiration' && <InspirationPage />}
-        {pageState.currentPage === 'favorites' && <FavouritePage />}
+        {pageState.currentPage === 'favorites' && <FavouritePage
+          addFavoriteList={addFavoriteList}
+          favoriteList={favoriteList}
+        />}
         {pageState.currentPage === 'settings' && <SettingsPage />}
-        {pageState.currentPage === 'drink' && <DrinkPage navigateBack={navigateBack} cocktail={pageState.selectedCocktail} />}
+        {pageState.currentPage === 'drink' && <DrinkPage
+          navigateBack={navigateBack}
+          cocktail={pageState.selectedCocktail}
+          favoriteList={favoriteList}
+          addFavoriteList={addFavoriteList}
+        />}
       </div>
       <div className='App-footer'>
-        <NavBar navigateTo={navigateTo} activePage={pageState.activePage} />
+        <NavBar navigateTo={navigateTo} navigateToMain={navigateToMain} activePage={pageState.activePage} />
       </div>
     </div>
   );

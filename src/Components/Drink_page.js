@@ -1,14 +1,37 @@
 import './Drink_page.css';
 import React, { useState } from 'react';
 
-const DrinkPage = ({ cocktail, navigateBack}) => {
+const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => {
+ 
   const [isFavorite, setIsFavorite] = useState(false);
 
+  const url = "https://localhost:7195/api/Favorite/user/2"
+
+  async function postFavoriteList() {
+    const requestBody = {
+      cocktail: cocktail.$values,
+      source: cocktail.source,
+      userId: 2,
+      favoriteBeverageId: cocktail.beverageId,
+    }
+    await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestBody)
+    })
+
+    .then((response) => response.json())
+    .then((cocktail) => addFavoriteList((cocktail.$values)))
+    .then((console.log(favoriteList)))
+  }
+
   const toggleFavorite = () => {
+    if (!isFavorite) {
+      postFavoriteList();}
     setIsFavorite(!isFavorite);
   };
-
-
 
   if (!cocktail) {
     return <div>No cocktail selected</div>;
@@ -17,8 +40,8 @@ const DrinkPage = ({ cocktail, navigateBack}) => {
   return (
     <div className='drink-page-content'>
       <div className='image-container'>
-        <div class="back-button-container">
-          <span class="material-icons back-button" onClick={() => navigateBack()}>arrow_back</span>
+        <div className="back-button-container">
+          <span className="material-icons back-button" onClick={() => navigateBack()}>arrow_back</span>
         </div>
         <img className='drink-page-image' src={cocktail.image} alt={cocktail.name} />
       </div>

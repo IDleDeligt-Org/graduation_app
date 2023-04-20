@@ -11,6 +11,7 @@ import React, { useState } from 'react';
 import Logo from './Components/Logo';
 
 function App() {
+
   const [pageState, setPageState] = useState({
     currentPage: "login",
     activePage: "login",
@@ -19,7 +20,10 @@ function App() {
     searchInitiated: false,
     searchText: '',
   });
+
   const [showQuickstart, setShowQuickstart] = useState(true);
+
+  const [favoriteList, setFavoriteList] = useState([]);
 
   function navigateTo(page) {
     setPageState({
@@ -75,6 +79,11 @@ function App() {
     });
   }
 
+  function addFavoriteList(item) {
+    setFavoriteList(prevFavoriteList => [...prevFavoriteList, item]);
+  }
+  
+
   return (
     <div className="App">
       <Logo />
@@ -95,9 +104,17 @@ function App() {
         />}
         {pageState.currentPage === 'ingredients' && <IngredientsPage />}
         {pageState.currentPage === 'inspiration' && <InspirationPage />}
-        {pageState.currentPage === 'favorites' && <FavouritePage />}
+        {pageState.currentPage === 'favorites' && <FavouritePage
+          addFavoriteList={addFavoriteList}
+          favoriteList={favoriteList}
+        />}
         {pageState.currentPage === 'settings' && <SettingsPage />}
-        {pageState.currentPage === 'drink' && <DrinkPage navigateBack={navigateBack} cocktail={pageState.selectedCocktail} />}
+        {pageState.currentPage === 'drink' && <DrinkPage
+          navigateBack={navigateBack}
+          cocktail={pageState.selectedCocktail}
+          favoriteList={favoriteList}
+          addFavoriteList={addFavoriteList}
+        />}
       </div>
       <div className='App-footer'>
         <NavBar navigateTo={navigateTo} navigateToMain={navigateToMain} activePage={pageState.activePage} />

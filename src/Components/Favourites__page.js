@@ -1,7 +1,4 @@
-import { async } from "q";
-import React, { useEffect, useState } from "react";
-import DrinkPage from "./Drink_page";
-import App from "../App";
+import React, { useEffect } from "react";
 
 export default function FavouritePage({ favoriteList, addFavoriteList }) {
 
@@ -14,7 +11,7 @@ export default function FavouritePage({ favoriteList, addFavoriteList }) {
       .then((result) => addFavoriteList(result.$values))
     }
     fetchFavorites();
-  }, []);
+  }, [addFavoriteList]);
 
     return (
       <div>

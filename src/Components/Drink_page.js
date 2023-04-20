@@ -77,7 +77,7 @@ const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => 
             {cocktail.beverageIngredients.$values.map((ingredients, index) => {
               return (
                 <div key={index} className='drink-page-ingredient'>
-                  <span className='drink-measurement'>{ingredients.measurment}</span>
+                  <span className='drink-measurement'>{ingredients.measurement}</span>
                   <span className='drink-ingredient'>{ingredients.ingredient.name}</span>
                 </div>
               )

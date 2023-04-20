@@ -22,7 +22,6 @@ function App() {
   });
 
   const [showQuickstart, setShowQuickstart] = useState(true);
-
   const [favoriteList, setFavoriteList] = useState([]);
 
   function navigateTo(page) {

@@ -66,8 +66,7 @@ const MainQuickstart = ({ onQuickstartClick, triggerSearchIngredient, triggerSea
                         onClick={() => {
                             onQuickstartClick(option);
                             triggerSearchIngredient(option);
-                        }}
-                    >
+                        }}>
                         <span className='quickstart-button-text'>{option}</span>
                     </button>
                 ))}

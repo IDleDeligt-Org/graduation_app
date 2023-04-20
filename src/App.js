@@ -22,7 +22,6 @@ function App() {
   });
 
   const [showQuickstart, setShowQuickstart] = useState(true);
-
   const [favoriteList, setFavoriteList] = useState([]);
 
   function navigateTo(page) {
@@ -82,7 +81,7 @@ function App() {
   }
 
   function addFavoriteList(item) {
-    setFavoriteList(prevFavoriteList => [...prevFavoriteList, item]);
+    setFavoriteList([...favoriteList, item]);    
   }
   
   return (
@@ -111,7 +110,7 @@ function App() {
         {pageState.currentPage === 'ingredients' && <CreateDrinkPage />}
         {pageState.currentPage === 'inspiration' && <InspirationPage />}
         {pageState.currentPage === 'favorites' && <FavouritePage
-          addFavoriteList={addFavoriteList}
+          setFavoriteList={setFavoriteList}
           favoriteList={favoriteList}
         />}
         {pageState.currentPage === 'settings' && <SettingsPage />}

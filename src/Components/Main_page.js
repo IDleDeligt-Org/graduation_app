@@ -25,7 +25,8 @@ const MainPage = ({
     const baseUrl = "https://sipster.azurewebsites.net/api";
     const response = await fetch(`${baseUrl}${urlPart}`);
     const result = await response.json();
-    return result.$values;
+    console.log(result.$values);
+    setFilteredCocktails(result.$values);
   };
 
   const triggerSearchIngredient = async (searchText) => {
@@ -71,8 +72,8 @@ const MainPage = ({
           <div className="main-quickstart-widget">
             <MainQuickstart
               onQuickstartClick={triggerQuickstartSearch}
-              onSearchTriggered={triggerSearchIngredient}
-              onSearchTriggeredNonAlcoholic={triggerSearchNonAlcoholic}
+              triggerSearchIngredient={triggerSearchIngredient}
+              triggerSearchNonAlcoholic={triggerSearchNonAlcoholic}
             />
           </div>
         ) : (
@@ -88,7 +89,7 @@ const MainPage = ({
           searchText={searchText}
           setSearchText={setSearchText}
           setFilteredCocktails={setFilteredCocktails}
-          onSearchInitiated={() => {
+          onSearchInitiated={async() => {
             triggerSearchAll(searchText);
           }}
           triggerSearchAll={triggerSearchAll}

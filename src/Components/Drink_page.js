@@ -25,8 +25,7 @@ const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => 
     })
 
     .then((response) => response.json())
-    .then((cocktail) => addFavoriteList((cocktail.$values)))
-    .then((console.log(favoriteList)))
+    .then((cocktail) => addFavoriteList((cocktail)))
   }
 
   const toggleFavorite = () => {
@@ -78,7 +77,7 @@ const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => 
             {cocktail.beverageIngredients.$values.map((ingredients, index) => {
               return (
                 <div key={index} className='drink-page-ingredient'>
-                  <span className='drink-measurement'>{ingredients.measurment}</span>
+                  <span className='drink-measurement'>{ingredients.measurement}</span>
                   <span className='drink-ingredient'>{ingredients.ingredient.name}</span>
                 </div>
               )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import LoginLogo from './Login_logo';
 import './Login_page.css';
 
 const Login_page = () => {
@@ -26,39 +26,41 @@ const Login_page = () => {
 
   return (
     <div className="login-page">
-      <div className='login-page-header'>
-        
-        <h1 className="title">sipster</h1>
-      </div>
-      <div className='login-page-input'>
-        <form className='login-page-form' onSubmit={handleSubmit}>
-          {/* <label htmlFor="user">User:</label> */}
-          <select
-            className='select-user'
-            name="user"
-            id="user"
-            value={selectedUser}
-            onChange={handleUserChange}
-          >
-            <option value="">Select a user</option>
-            {users.map((user, index) => (
-              <option key={index} value={user.username}>
-                {user.username}
-              </option>
-            ))}
-          </select>
-          {/* <label htmlFor="password">Password:</label> */}
-          <input
-            className='password-input'
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            readOnly
-            placeholder="Password"
-          />
-          <button className='login-button' type="submit">Login</button>
-        </form>
+      <div className="login-container">
+        <div className='login-page-header'>
+          <LoginLogo className="login-page-logo" />
+          <h1 className="title">sipster</h1>
+        </div>
+        <div className='login-page-input'>
+          <form className='login-page-form' onSubmit={handleSubmit}>
+            {/* <label htmlFor="user">User:</label> */}
+            <select
+              className='select-user'
+              name="user"
+              id="user"
+              value={selectedUser}
+              onChange={handleUserChange}
+            >
+              <option value="">Select a user</option>
+              {users.map((user, index) => (
+                <option key={index} value={user.username}>
+                  {user.username}
+                </option>
+              ))}
+            </select>
+            {/* <label htmlFor="password">Password:</label> */}
+            <input
+              className='password-input'
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              readOnly
+              placeholder="Password"
+            />
+            <button className='login-button' type="submit">Login</button>
+          </form>
+        </div>
       </div>
     </div>
   );

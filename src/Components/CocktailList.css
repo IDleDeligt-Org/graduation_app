@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 15px;
-  padding: 15px;
+  padding: 15px 0px;
   padding-bottom: 80px;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .cocktail-name {
-  font-size: 1.5em;
+  font-size: 1.4em;
   font-weight: 700;
   position: absolute;
   bottom: 0;
@@ -22,14 +22,16 @@
   right: 0;
   color: #fff;
   text-align: center;
-  /* background-image: linear-gradient(to top, #000, transparent); */
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(to top, #000000ba, transparent);
+  text-shadow: 2px 2px 2px #000000;
   padding: 15px 15px;
+  border-radius: 5px;
 }
 
 .cocktail-image {
   width: 100%;
   height: auto;
+  border-radius: 5px;
 }
 
 .cocktail-image-placeholder {

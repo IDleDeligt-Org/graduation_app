@@ -2,7 +2,11 @@ import React, { useEffect } from "react";
 import { MdBrokenImage } from 'react-icons/md';
 import './Favourites_page.css';
 
-export default function FavouritePage({ favoriteList, setFavoriteList }) {
+export default function FavouritePage({ 
+  favoriteList, 
+  setFavoriteList,
+  onCocktailSelect,
+}) {
   const handleImageLoad = (e) => {
     e.target.style.display = 'block';
     e.target.previousSibling.style.display = 'none';
@@ -30,7 +34,7 @@ export default function FavouritePage({ favoriteList, setFavoriteList }) {
 
     // Render the cocktails
     return flattenedBeverages.map((cocktail, index) => (
-      <div key={index} className="favorite-item">
+      <div key={index} className="favorite-item" onClick={() => onCocktailSelect(cocktail)}>
         <div className="favorite-image-placeholder">
           <MdBrokenImage className="broken-image-icon" />
         </div>

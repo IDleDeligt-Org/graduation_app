@@ -120,6 +120,7 @@ function App() {
         {pageState.currentPage === 'favorites' && <FavouritePage
           setFavoriteList={setFavoriteList}
           favoriteList={favoriteList}
+          onCocktailSelect={handleCocktailSelect}
         />}
         {pageState.currentPage === 'settings' && <SettingsPage />}
         {pageState.currentPage === 'drink' && <DrinkPage

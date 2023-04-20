@@ -15,9 +15,6 @@ const MainPage = ({
   setSearchText
 }) => {
 
-  const triggerQuickstartSearch = (searchText) => {
-    setSearchText(searchText);
-  };
 
   const triggerSearch = async (urlPart) => {
     console.log(urlPart);
@@ -71,7 +68,7 @@ const MainPage = ({
         {showQuickstart ? (
           <div className="main-quickstart-widget">
             <MainQuickstart
-              onQuickstartClick={triggerQuickstartSearch}
+              triggerSearchBeverage={triggerSearchBeverage}
               triggerSearchIngredient={triggerSearchIngredient}
               triggerSearchNonAlcoholic={triggerSearchNonAlcoholic}
             />

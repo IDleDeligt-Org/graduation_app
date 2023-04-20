@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Main_Quickstart.css';
 import { MdBrokenImage } from 'react-icons/md';
 
-const MainQuickstart = ({ onQuickstartClick, triggerSearchIngredient, triggerSearchNonAlcoholic}) => {
+const MainQuickstart = ({ triggerSearchBeverage, triggerSearchIngredient, triggerSearchNonAlcoholic}) => {
     const quickstartOptions = ['Gin', 'Rum', 'Tequila', 'Vodka', 'Whiskey'];
 
     const [randomDrinks, setRandomDrinks] = useState([]);
@@ -40,7 +40,7 @@ const MainQuickstart = ({ onQuickstartClick, triggerSearchIngredient, triggerSea
             <div className='random-drinks-container'>
                 {randomDrinks.map((drink, index) => (
                     <div key={drink.idDrink} className="random-drink">
-                        <div className="cocktail-item" onClick={() => onQuickstartClick(drink.strCategory)}>
+                        <div className="cocktail-item" onClick={() =>triggerSearchBeverage(drink.strDrink)}>
                             <div className="cocktail-image-placeholder">
                                 <MdBrokenImage className="broken-image-icon" />
                             </div>

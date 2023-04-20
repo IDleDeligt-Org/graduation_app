@@ -129,14 +129,14 @@ const CreateDrinkPage = ({ navigateBack }) => {
 
   return (
     <div className='create-drink-page-content'>
-      <h1>Create cocktail</h1>
+      <h1 className='create-drink-h1'>Create cocktail</h1>
 
       <form>
         <div className='create-drink-page-text'>
           <div className='create-drink-page-header'>
 
             <div className='create-drink-page-ingredients'>
-              <h2>Info</h2>
+              <h2 className='create-drink-h2'>Info</h2>
               <input type="text" value={cocktailName}
                 placeholder="Cocktail name..."
                 onChange={(e) => setCocktailName(e.target.value)}
@@ -158,12 +158,12 @@ const CreateDrinkPage = ({ navigateBack }) => {
                   onChange={(e) => setImageUrl(e.target.value)} />
               </div>
             </div>
-            
+
           </div>
 
           <div className='create-dark-gray-box'>
             <div className='create-drink-page-ingredients'>
-              <h2>Ingredient</h2>
+              <h2 className='create-drink-h2'>Ingredient</h2>
               <div className='create-drink-page-ingredient'>
                 <select className='create-drink-measurement' defaultValue="default"
                   onChange={(event) => handleFormGlassChange(event)} required>
@@ -193,7 +193,7 @@ const CreateDrinkPage = ({ navigateBack }) => {
                         }) : null}
                       </select>
                       <input type="text"
-                        placeholder="Measure of ingredient..."
+                        placeholder="Amount..."
                         onChange={(event) => handleFormMeasurementChange(event, index)}
                         maxLength={50}
                         className='create-drink-measurement'
@@ -201,9 +201,13 @@ const CreateDrinkPage = ({ navigateBack }) => {
                     </div>
                   )
                 })}
-                <button onClick={(event) => addFields(event)}>Add more ingredients</button>
+                <button className='create-drink-add-more-ingredients create-drink-button' onClick={(event) => addFields(event)}>
+                  <span className='create-drink-button-text'>
+                    Add more ingredients
+                  </span>
+                </button>
               </div>
-              <div>
+              <div className='create-drink-contains-alcohol'>
                 <label>Contains alcohol?
                   <label> Yes
                     <input type='radio' name='alcohol' value='yes' onChange={handleAlcoholicChange}></input>
@@ -217,20 +221,24 @@ const CreateDrinkPage = ({ navigateBack }) => {
             </div>
           </div>
           <div className='create-dark-gray-box create-drink-page-instructions'>
-            <h2>Instructions</h2>
+            <h2 className='create-drink-h2'>Instructions</h2>
             <input type="text" value={instruction}
               onChange={(e) => setInstruction(e.target.value)}
               maxLength={1500}
-              placeholder="Enter your description of how to make your cocktail..." required />
+              placeholder="How to make your cocktail?" required />
             <div>
               <br /><p>Video, optional</p>
               <input type="text" value={videoUrl}
-                placeholder="Enter Video Url"
+                placeholder="Do you have a video URL?"
                 onChange={(e) => setVideoUrl(e.target.value)} />
             </div>
           </div>
         </div>
-        <button onClick={(event) => handleSubmit(event)}>Add cocktail</button>
+        <button className='create-drink-button' onClick={(event) => handleSubmit(event)}>
+          <span className='create-drink-button-text'>
+            Add cocktail
+          </span>
+        </button>
       </form>
     </div>
   );

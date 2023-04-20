@@ -77,7 +77,7 @@ const MainPage = ({
           ></CocktailList>
         )}
       </div>
-      <div className="search-bar-container">
+      <div className="main-page-search-bar-container">
         <SearchBar
           searchText={searchText}
           setSearchText={setSearchText}

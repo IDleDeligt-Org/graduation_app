@@ -3,12 +3,12 @@
     z-index: 2;
     display: flex;
     align-items: center;
-    width: 80%;
+    width: 100%;
     background-color: #ffffff;
     box-shadow: 1px 1px 5px #00000080;
     border-radius: 50px;
-    margin-bottom: 20px;
-  }
+}
+
 
 .search-bar-container {
     position: relative;
@@ -34,7 +34,7 @@
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
-    
+
 }
 
 .search-bar .search-field input:focus {
@@ -65,7 +65,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
 
 .search-bar .search-icon {
     font-family: 'Material Icons';

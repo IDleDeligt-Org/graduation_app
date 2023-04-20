@@ -30,7 +30,7 @@ const CreateDrinkPage = ({navigateBack}) => {
   const handleFormIngredientIdChange = (event, index) => {
     const ingredientId  = event.target.value;
     let data = [...ingredientsFields];
-    data[index].ingredientId = ingredientId
+    data[index].ingredientId = parseInt(ingredientId)
     setIngredientsFields(data);
   };
 
@@ -46,12 +46,10 @@ const CreateDrinkPage = ({navigateBack}) => {
   }
   
   const mapIngredients = () => {
-    const filteredIngredients = ingredientsList.filter((ingredient) => {
-      return ingredientsFields.some((field) => field.ingredientId === ingredient.ingredientId);
-    });
   
-    const mappedIngredients = filteredIngredients.map((ingredientsFields) => {
+    const mappedIngredients = ingredientsFields.map((ingredientsFields) => {
       const ingredientdata = ingredientsList.find(
+        
         (ingredient) => ingredient.ingredientId === (ingredientsFields.ingredientId)
       );
   
@@ -71,16 +69,14 @@ const CreateDrinkPage = ({navigateBack}) => {
         }
       };
     });
-  
+    console.log(mappedIngredients)
     return mappedIngredients;
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const mappedIngredients = mapIngredients();
-    let response;
-    try {
-      response = await fetch("https://localhost:7195/api/beverage", {
+    await fetch("https://localhost:7195/api/beverage", {
         method: "POST",
         body: JSON.stringify({
           "beverageId": 0,
@@ -96,27 +92,12 @@ const CreateDrinkPage = ({navigateBack}) => {
           "beverageIngredients": mappedIngredients
         }),
         headers: { "Content-Type": "application/json" }
-      });
-      console.log("Response status:", response.status);
-      const responseData = await response.json();
-      console.log("Response headers:", response.headers);
-      console.log("Response data:", responseData);
-    } catch (error) {
-      console.error("Error:", error);
-    }
-    console.log("Function execution finished.");
-    
-    // Log the raw response body as text
-    if (response) {
-      const rawResponse = await response.text();
-      console.log("Raw response:", rawResponse);
-    }
+      }).then((response)=> response.json())
+      .then((data) => {
+          console.log("Success:", data);
+      }).catch((error) => {console.error("Error:", error);});
   };
-  
-  
-  // const validateUrl = (url, setStateFunc) => {
-  //   setStateFunc(url.replace(/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w.-]*)*\/?$/, ''));
-  // }
+
 
   useEffect(() => {
     async function fetchIngredients() {

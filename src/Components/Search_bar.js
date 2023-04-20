@@ -6,6 +6,7 @@ export function SearchBar({
   setSearchText,
   triggerSearchBeverage,
   triggerSearchIngredient,
+  triggerSearchAll,
 }) {
 
   function checkSearchText(text) {
@@ -14,7 +15,7 @@ export function SearchBar({
 
   const onSubmit = (event) => {
     event.preventDefault();
-    triggerSearchBeverage(searchText);
+    triggerSearchAll(searchText);
   };
 
   return (

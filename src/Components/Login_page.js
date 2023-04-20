@@ -29,7 +29,7 @@ const Login_page = ({
   return (
     <div className="login-page">
       <div className='login-page-header'>
-        
+        <LoginLogo />
         <h1 className="title">sipster</h1>
       </div>
       <div className='login-page-input'>

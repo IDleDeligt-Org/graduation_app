@@ -7,7 +7,7 @@ const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => 
  
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const url = "https://localhost:7195/api/Favorite/user/2"
+  const url = "https://sipster.azurewebsites.net/api/Favorite/user/2"
 
   async function postFavoriteList() {
     const requestBody = {

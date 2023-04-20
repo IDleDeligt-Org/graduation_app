@@ -1,6 +1,16 @@
+h1 {
+  color: #004d4d;
+}
+
 h2 {
+  color: #004d4d;
   padding: 0;
   margin-bottom: 15px;
+}
+
+p {
+  font-size: 1.1em;
+  color: #004d4d;
 }
 
 .drink-page-content {
@@ -37,7 +47,7 @@ h2 {
 
 .drink-page-header .favorite-icon {
   font-size: 34px !important;
-  color: #888;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -85,7 +95,7 @@ h2 {
 }
 
 .drink-page-text {
-  padding: 10px 20px 20px 20px;
+  padding: 10px 15px 15px 15px;
 } 
 
 .drink-page-tags {
@@ -105,27 +115,29 @@ h2 {
 }
 
 .drink-measurement {
+  font-size: 1.1em;
   text-align: right;
   margin-right: 5px;
 }
 
 .drink-ingredient {
+  font-size: 1.1em;
   text-align: left;
 }
 
 .dark-gray-box {
-  background-color: #222222;
+  background-color: #ffffff;
   padding: 15px;
   border-radius: 5px;
   margin-top: 20px;
 }
 
 .dark-gray-box h2 {
-  color: #ddd;
+  color: #505050;
 }
 
 .dark-gray-box p,
 .dark-gray-box .drink-ingredient,
 .dark-gray-box .drink-measurement {
-  color: #bbbbbb;
+  color: #505050;
 }

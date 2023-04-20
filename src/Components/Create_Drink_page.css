@@ -3,7 +3,7 @@ h2 {
   margin-bottom: 15px;
 }
 
-.drink-page-content {
+.create-drink-page-content {
   position: relative;
   z-index: 2;
   display: flex;
@@ -15,19 +15,19 @@ h2 {
   width: 100%;
 }
 
-.drink-page-image {
+.create-drink-page-image {
   margin: 0;
   width: 100%;
 }
 
-.drink-page-header {
+.create-drink-page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-right: 20px;
 }
 
-.drink-page-title {
+.create-drink-page-title {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -35,24 +35,24 @@ h2 {
   padding-right: 20px;
 }
 
-.drink-page-header .favorite-icon {
+.create-drink-page-header .favorite-icon {
   font-size: 34px !important;
   color: #888;
   cursor: pointer;
 }
 
-.drink-page-header .favorite-icon.material-icons.active {
+.create-drink-page-header .favorite-icon.material-icons.active {
   color: #ffd500;
 }
 
-.drink-page-header .favorite-icon:active,
-.drink-page-header .favorite-icon:focus {
+.create-drink-page-header .favorite-icon:active,
+.create-drink-page-header .favorite-icon:focus {
   background-color: transparent !important;
   outline: none !important;
   box-shadow: none !important;
 }
 
-.image-container {
+.create-image-container {
   position: relative;
 }
 
@@ -82,48 +82,48 @@ h2 {
   color: #111;
 }
 
-.drink-page-text {
+.create-drink-page-text {
   padding: 10px 20px 20px 20px;
 } 
 
-.drink-page-tags {
+.create-drink-page-tags {
   font-weight: 100;
   font-style: italic;
 }
 
-.drink-page-ingredients {
+.create-drink-page-ingredients {
   display: grid;
   grid-template-columns: max-content max-content;
   grid-gap: 10px;
   align-items: center;
 }
 
-.drink-page-ingredient {
+.create-drink-page-ingredient {
   display: contents;
 }
 
-.drink-measurement {
+.create-drink-measurement {
   text-align: right;
   margin-right: 5px;
 }
 
-.drink-ingredient {
+.create-drink-ingredient {
   text-align: left;
 }
 
-.dark-gray-box {
+.create-dark-gray-box {
   background-color: #222222;
   padding: 15px;
   border-radius: 5px;
   margin-top: 20px;
 }
 
-.dark-gray-box h2 {
+.create-dark-gray-box h2 {
   color: #ddd;
 }
 
-.dark-gray-box p,
-.dark-gray-box .drink-ingredient,
-.dark-gray-box .drink-measurement {
+.create-dark-gray-box p,
+.create-dark-gray-box .drink-ingredient,
+.create-dark-gray-box .drink-measurement {
   color: #bbbbbb;
 }

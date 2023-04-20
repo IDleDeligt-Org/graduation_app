@@ -2,6 +2,14 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+*,
+*::before,
+*::after {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.0em;
+}
+
+
 body {
   border: 0;
   margin: 0;

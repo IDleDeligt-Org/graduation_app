@@ -128,27 +128,27 @@ const CreateDrinkPage = ({navigateBack}) => {
   }, []);
 
   return (
-    <div className='drink-page-content'>
+    <div className='create-drink-page-content'>
       <form>
-          <div className='image-container'>
+          <div className='create-image-container'>
             <div className="back-button-container">
               <span className="material-icons back-button" onClick={() => navigateBack()}>arrow_back</span>
             </div>
-            <img className='drink-page-image' src={imageUrl} alt={""} />
+            <img className='create-drink-page-image' src={imageUrl} alt={""} />
             <input type="text" value={imageUrl} 
                     placeholder="Enter Image Url"
                     onChange={(e) => setImageUrl(e.target.value)}/> 
           </div> 
 
-          <div className='drink-page-text'>
-            <div className='drink-page-header'>
-              <div className='drink-page-title'>
+          <div className='create-drink-page-text'>
+            <div className='create-drink-page-header'>
+              <div className='create-drink-page-title'>
                     <input type="text" value={cocktailName} 
                             placeholder ="Drink name..." 
                             onChange={(e) => setCocktailName(e.target.value)}
                             maxLength={50}
                             required></input>
-                <div className='drink-page-tags'>
+                <div className='create-drink-page-tags'>
                     <input type="text" value={cocktailTag} 
                             placeholder="Describe your cocktail..." 
                             onChange={(e) => setCocktailTag(e.target.value)}
@@ -157,11 +157,11 @@ const CreateDrinkPage = ({navigateBack}) => {
               </div>
             </div>
 
-            <div className='dark-gray-box'>
+            <div className='create-dark-gray-box'>
               <h2>Ingredient</h2>
-              <div className='drink-page-ingredients'>
-                <div className='drink-page-ingredient'>
-                  <select className='drink-measurement' defaultValue="default" 
+              <div className='create-drink-page-ingredients'>
+                <div className='create-drink-page-ingredient'>
+                  <select className='create-drink-measurement' defaultValue="default" 
                           onChange={(event) => handleFormGlassChange(event)} required>
                     <option value="default" disabled>Pick the glasstype</option>
                         {glassTypes.map((glass)=>{
@@ -173,11 +173,11 @@ const CreateDrinkPage = ({navigateBack}) => {
                         })}
                   </select>
                 </div>
-                <div className='drink-page-ingredient'> 
+                <div className='create-drink-page-ingredient'> 
                   {ingredientsFields.map((ingredientField, index) => {
                     return(
                       <div key={index}>
-                        <select name={ingredientField} className='drink-ingredient' defaultValue="default" 
+                        <select name={ingredientField} className='create-drink-ingredient' defaultValue="default" 
                           onChange={(event) =>handleFormIngredientIdChange(event, index)} required>
                           <option value="default" disabled>Pick your ingredient</option>
                             {ingredientsList ? ingredientsList.map((ingredient)=>{
@@ -192,7 +192,7 @@ const CreateDrinkPage = ({navigateBack}) => {
                             placeholder ="Measure of ingredient..." 
                             onChange={(event) =>handleFormMeasurementChange(event, index)}
                             maxLength={50}
-                            className='drink-measurement'
+                            className='create-drink-measurement'
                             name={ingredientField} required></input>
                       </div>
                     )
@@ -216,7 +216,7 @@ const CreateDrinkPage = ({navigateBack}) => {
                 </div>
               </div>
             </div>
-            <div className='dark-gray-box drink-page-instructions'>
+            <div className='create-dark-gray-box create-drink-page-instructions'>
                   <input type="text" value={instruction} 
                         onChange={(e) => setInstruction(e.target.value)}
                         maxLength={1500} 

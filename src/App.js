@@ -40,6 +40,7 @@ function App() {
       activePage: 'main',
       currentPage: 'main',
       searchText: '',
+      filteredCocktails: [],
     });
   }
 
@@ -60,6 +61,7 @@ function App() {
       currentPage: "main",
       selectedCocktail: null,
       searchText: '',
+      filteredCocktails: [],
     });
   }
 

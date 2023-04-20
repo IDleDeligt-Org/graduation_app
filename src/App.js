@@ -96,7 +96,9 @@ function App() {
 
   return (
     <div className="App">
-      <Logo />
+      <div style={{zIndex: -1}}>
+        <Logo />
+      </div>
       <div className="App-header"></div>
 
       <div className='App-content'>

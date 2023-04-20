@@ -16,8 +16,8 @@ function App() {
     currentPage: "login",
     activePage: "login",
     filteredCocktails: [],
-    byNameCocktails: [],
-    byIngredientCocktails: [],
+    // byNameCocktails: [],
+    // byIngredientCocktails: [],
     selectedCocktail: null,
     searchInitiated: false,
     searchText: '',
@@ -85,13 +85,19 @@ function App() {
     setFavoriteList(prevFavoriteList => [...prevFavoriteList, item]);
   }
   
-  function setByNameCocktails(data){
-    setByNameCocktails(data);
-  }
+  // function setByNameCocktails(data){
+  //   setPageState({
+  //     ...pageState,
+  //     setByNameCocktails: data,
+  //   });
+  // }
   
-  function setByIngredientCocktails(data){
-    setByNameCocktails(data);
-  }
+  // function setByIngredientCocktails(data){
+  //   setPageState({
+  //     ...pageState,
+  //     setByIngredientCocktails: data,
+  //   });
+  // }
 
   return (
     <div className="App">
@@ -106,10 +112,10 @@ function App() {
           onCocktailSelect={handleCocktailSelect}
           filteredCocktails={pageState.filteredCocktails}
           setFilteredCocktails={(cocktails) => setPageState({ ...pageState, filteredCocktails: cocktails })}
-          byNameCocktails={pageState.byNameCocktails}
-          setByNameCocktails={setByNameCocktails}
-          byIngredientCocktails={pageState.byIngredientCocktails}
-          setByIngredientCocktails={setByIngredientCocktails}
+          // byNameCocktails={pageState.byNameCocktails}
+          // setByNameCocktails={setByNameCocktails}
+          // byIngredientCocktails={pageState.byIngredientCocktails}
+          // setByIngredientCocktails={setByIngredientCocktails}
           onSearchInitiated={onSearchInitiated}
           searchInitiated={pageState.searchInitiated}
           showQuickstart={showQuickstart}

@@ -42,48 +42,16 @@ const MainPage = ({
     return beverages;
   };
 
-  // const triggerSearchAll = async (searchText) => {
-  //   onSearchInitiated();
-
-  //   const resultBeverages = triggerSearchBeverage(searchText);
-  //   const resultIngredients = triggerSearchIngredient(searchText);
-
-  //   const [ingredients, beverages] = await Promise.all([
-  //     resultBeverages,
-  //     resultIngredients,
-  //   ]);
-
-  //   const resultCombined = [...new Set([...beverages, ...ingredients])];
-
-  //   setFilteredCocktails(resultCombined);
-  // };
-
-  // // WORK IN PROGREE UNIQUE RECIPE SEARCH RESULTS
-  // const triggerSearchAll = async (searchText) => {
-  //   onSearchInitiated();
-  
-  //   const resultIngredients = triggerSearchIngredient(searchText);
-  //   const resultBeverages = triggerSearchBeverage(searchText);
-  
-  //   const [ingredients, beverages] = await Promise.all([
-  //     resultIngredients,
-  //     resultBeverages,
-  //   ]);
-    
-    
-  //   const combinedList = [...new Set([...ingredients, ...beverages])];
-  //   const seen = new Set();
-
-  //   const uniqueResults = combinedList.filter(
-  //     (cocktail) => {const duplicate = seen.has(cocktail.id);
-  //       seen.add(cocktail.id);
-  //       return !duplicate;}
-  //   );
-
-  //   setFilteredCocktails(uniqueResults);
-  //   setByIngredientCocktails(resultIngredients);
-  //   setByNameCocktails(resultBeverages);
-  // };
+  const triggerSearchAll = async (searchText) => { 
+    onSearchInitiated(); 
+    const resultIngredients = triggerSearchIngredient(searchText); 
+    const resultBeverages = triggerSearchBeverage(searchText); 
+    const [ingredients, beverages] = await Promise.all([ resultIngredients, resultBeverages, ]); 
+    const combinedList = [...new Set([...ingredients, ...beverages])]; 
+    const uniqueResults = Array.from(new Set(combinedList.map(cocktail => cocktail.beverageId))).map(beverageId =>{
+      return combinedList.find(cocktail => cocktail.beverageId === beverageId) }) 
+      setFilteredCocktails(uniqueResults); 
+    };
   
 
   const triggerSearchNonAlcoholic = () => {
@@ -115,7 +83,7 @@ const MainPage = ({
           setSearchText={setSearchText}
           setFilteredCocktails={setFilteredCocktails}
           onSearchInitiated={() => {
-    triggerSearchAll(searchText);
+            triggerSearchAll(searchText);
           }}
           triggerSearchBeverage={triggerSearchBeverage}
           triggerSearchAll={triggerSearchAll}

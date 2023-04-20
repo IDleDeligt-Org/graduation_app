@@ -2,7 +2,6 @@ import './App.css';
 import LoginPage from './Components/Login_page';
 import MainPage from './Components/Main_page';
 import DrinkPage from './Components/Drink_page';
-import IngredientsPage from './Components/Ingredients_page';
 import InspirationPage from './Components/Inspiration_page';
 import FavouritePage from './Components/Favourites__page';
 import SettingsPage from './Components/Settings_page';

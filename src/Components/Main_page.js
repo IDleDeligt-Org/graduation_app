@@ -8,10 +8,6 @@ const MainPage = ({
   onCocktailSelect,
   setFilteredCocktails,
   filteredCocktails,
-  byNameCocktails,
-  setByNameCocktails,
-  byIngredientCocktails,
-  setByIngredientCocktails,
   onSearchInitiated,
   showQuickstart,
   navigateBackToMain,
@@ -24,11 +20,11 @@ const MainPage = ({
   };
 
   const triggerSearch = async (urlPart) => {
+    console.log(urlPart);
     onSearchInitiated();
     const baseUrl = "https://sipster.azurewebsites.net/api";
     const response = await fetch(`${baseUrl}${urlPart}`);
     const result = await response.json();
-  
     return result.$values;
   };
 
@@ -42,20 +38,30 @@ const MainPage = ({
     return beverages;
   };
 
-  const triggerSearchAll = async (searchText) => { 
-    onSearchInitiated(); 
-    const resultIngredients = triggerSearchIngredient(searchText); 
-    const resultBeverages = triggerSearchBeverage(searchText); 
-    const [ingredients, beverages] = await Promise.all([ resultIngredients, resultBeverages, ]); 
-    const combinedList = [...new Set([...ingredients, ...beverages])]; 
-    const uniqueResults = Array.from(new Set(combinedList.map(cocktail => cocktail.beverageId))).map(beverageId =>{
-      return combinedList.find(cocktail => cocktail.beverageId === beverageId) }) 
-      setFilteredCocktails(uniqueResults); 
-    };
-  
-
   const triggerSearchNonAlcoholic = () => {
     triggerSearch("/ingredient/search/non_alcoholic");
+  };
+
+  const triggerSearchAll = async (searchText) => {
+    onSearchInitiated();
+  
+    const resultIngredients = triggerSearchIngredient(searchText);
+    const resultBeverages = triggerSearchBeverage(searchText);
+  
+    const [ingredients, beverages] = await Promise.all([
+      resultIngredients,
+      resultBeverages,
+    ]);
+    
+    const combinedList = [...new Set([...ingredients, ...beverages])];
+
+    const uniqueResults = Array
+          .from(new Set(combinedList.map(cocktail => cocktail.beverageId)))
+          .map(beverageId => {
+            return combinedList.find(cocktail => cocktail.beverageId === beverageId)
+          })
+
+    setFilteredCocktails(uniqueResults);
   };
 
   return (
@@ -85,7 +91,6 @@ const MainPage = ({
           onSearchInitiated={() => {
             triggerSearchAll(searchText);
           }}
-          triggerSearchBeverage={triggerSearchBeverage}
           triggerSearchAll={triggerSearchAll}
         ></SearchBar>
       </div>

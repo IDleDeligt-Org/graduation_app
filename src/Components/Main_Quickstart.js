@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Main_Quickstart.css';
 import { MdBrokenImage } from 'react-icons/md';
 
-const MainQuickstart = ({ onQuickstartClick, onSearchTriggered, onSearchTriggeredNonAlcoholic}) => {
+const MainQuickstart = ({ onQuickstartClick, triggerSearchIngredient, triggerSearchNonAlcoholic}) => {
     const quickstartOptions = ['Gin', 'Rum', 'Tequila', 'Vodka', 'Whiskey'];
 
     const [randomDrinks, setRandomDrinks] = useState([]);
@@ -65,7 +65,7 @@ const MainQuickstart = ({ onQuickstartClick, onSearchTriggered, onSearchTriggere
                         className='quickstart-button'
                         onClick={() => {
                             onQuickstartClick(option);
-                            onSearchTriggered(option);
+                            triggerSearchIngredient(option);
                         }}
                     >
                         <span className='quickstart-button-text'>{option}</span>
@@ -75,7 +75,7 @@ const MainQuickstart = ({ onQuickstartClick, onSearchTriggered, onSearchTriggere
                     className='quickstart-button'
                     onClick={() => {
                         onQuickstartClick('non_alcoholic');
-                        onSearchTriggeredNonAlcoholic();
+                        triggerSearchNonAlcoholic();
                     }}
                 >
                     <span className='quickstart-button-text'>No alcohol</span>

@@ -2,6 +2,7 @@ import './Drink_page.css';
 import React, { useState } from 'react';
 import glassTypes from '../Data/glassTypes';
 
+
 const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => {
  
   const [isFavorite, setIsFavorite] = useState(false);
@@ -37,12 +38,11 @@ const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => 
   if (!cocktail) {
     return <div>No cocktail selected</div>;
   }
-
+  
   const getGlassNameFromValue = (value) => {
-    const glassType = glassType.find(glass => glass.Value === value);
+    const glassType = glassTypes.find(glass => glass.Value === value);
     return glassType ? glassType.Name : "Unknown";
   }
-
   return (
     <div className='drink-page-content'>
       <div className='image-container'>

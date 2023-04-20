@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 90vh;
 }
 
 .login-page-header {
@@ -10,15 +11,17 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding-top: 20px;
 }
 
 .login-page-logo {
-    width: 60px;
+    width: 50px;
+    /* Reduce the size of the logo */
 }
 
 .title {
     font-size: 2em;
+    margin-left: 10px;
+    color: #fff;
 }
 
 .login-page-input {

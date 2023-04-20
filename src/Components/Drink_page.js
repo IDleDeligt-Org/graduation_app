@@ -1,5 +1,6 @@
 import './Drink_page.css';
 import React, { useState } from 'react';
+import glassTypes from '../Data/glassTypes';
 
 const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => {
  
@@ -37,6 +38,11 @@ const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => 
     return <div>No cocktail selected</div>;
   }
 
+  const getGlassNameFromValue = (value) => {
+    const glassType = glassType.find(glass => glass.Value === value);
+    return glassType ? glassType.Name : "Unknown";
+  }
+
   return (
     <div className='drink-page-content'>
       <div className='image-container'>
@@ -67,7 +73,7 @@ const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => 
           <div className='drink-page-ingredients'>
             <div className='drink-page-ingredient'>
               <span className='drink-measurement'>Glass:</span>
-              <span className='drink-ingredient'>{cocktail.glass}</span>
+              <span className='drink-ingredient'>{getGlassNameFromValue(cocktail.glass)}</span>
             </div>
             {cocktail.beverageIngredients.$values.map((ingredients, index) => {
               return (

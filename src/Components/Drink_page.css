@@ -58,15 +58,17 @@ h2 {
 
 .back-button-container {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 10px;
+  left: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  background-color: #0000003a;
+  background-color: #004d4d;
+  box-shadow: 1px 1px 2px #000000;
+  z-index: 3;
 }
 
 .back-button-container:active {

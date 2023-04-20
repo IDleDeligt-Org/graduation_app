@@ -3,8 +3,8 @@
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 0;
-  padding: 0;
+  grid-gap: 15px;
+  padding: 15px;
   padding-bottom: 80px;
 }
 
@@ -15,13 +15,14 @@
 
 .cocktail-name {
   font-size: 1.5em;
+  font-weight: 700;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   color: #fff;
   text-align: center;
-  background-image: linear-gradient(to top, #000, transparent);
+  /* background-image: linear-gradient(to top, #000, transparent); */
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   padding: 15px 15px;
 }
@@ -51,31 +52,4 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.back-button-container {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #0000003a;
-  z-index: 3;
-}
-
-.back-button-container:active {
-  background-color: #ffd500;
-}
-
-.back-button {
-  color: #fff;
-  font-size: 24px;
-}
-
-.back-button:active {
-  color: #111;
 }

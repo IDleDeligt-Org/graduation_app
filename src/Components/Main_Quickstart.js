@@ -2,13 +2,19 @@ import React, { useEffect, useState } from 'react';
 import './Main_Quickstart.css';
 import { MdBrokenImage } from 'react-icons/md';
 
-const MainQuickstart = ({ onQuickstartClick, triggerSearchIngredient, triggerSearchNonAlcoholic}) => {
+const MainQuickstart = ({ 
+    triggerQuickstartSearch, 
+    triggerSearchBeverage, 
+    triggerSearchIngredient, 
+    triggerSearchNonAlcoholic,
+    addRandomList,
+    randomCocktails,}) => {
     const quickstartOptions = ['Gin', 'Rum', 'Tequila', 'Vodka', 'Whiskey'];
 
-    const [randomDrinks, setRandomDrinks] = useState([]);
-
     useEffect(() => {
-        fetchRandomDrinks();
+        if (randomCocktails.length === 0) { // Only fetch if randomCocktails is empty
+            fetchRandomDrinks();
+        }
     }, []);
 
     const fetchRandomDrinks = async () => {
@@ -19,7 +25,7 @@ const MainQuickstart = ({ onQuickstartClick, triggerSearchIngredient, triggerSea
                 const data = await response.json();
                 drinks.push(data.drinks[0]);
             }
-            setRandomDrinks(drinks);
+            addRandomList(drinks);
         } catch (error) {
             console.error('Error fetching random drinks:', error);
         }
@@ -38,9 +44,9 @@ const MainQuickstart = ({ onQuickstartClick, triggerSearchIngredient, triggerSea
     return (
         <div className='main-quickstart'>
             <div className='random-drinks-container'>
-                {randomDrinks.map((drink, index) => (
+                {randomCocktails.map((drink, index) => (
                     <div key={drink.idDrink} className="random-drink">
-                        <div className="cocktail-item" onClick={() => onQuickstartClick(drink.strCategory)}>
+                        <div className="cocktail-item" onClick={() => triggerSearchBeverage(drink.strDrink)}>
                             <div className="cocktail-image-placeholder">
                                 <MdBrokenImage className="broken-image-icon" />
                             </div>
@@ -64,7 +70,7 @@ const MainQuickstart = ({ onQuickstartClick, triggerSearchIngredient, triggerSea
                         key={index}
                         className='quickstart-button'
                         onClick={() => {
-                            onQuickstartClick(option);
+                            triggerQuickstartSearch(option);
                             triggerSearchIngredient(option);
                         }}>
                         <span className='quickstart-button-text'>{option}</span>
@@ -73,7 +79,7 @@ const MainQuickstart = ({ onQuickstartClick, triggerSearchIngredient, triggerSea
                 <button
                     className='quickstart-button'
                     onClick={() => {
-                        onQuickstartClick('non_alcoholic');
+                        triggerQuickstartSearch('non_alcoholic');
                         triggerSearchNonAlcoholic();
                     }}
                 >

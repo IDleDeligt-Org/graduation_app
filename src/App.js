@@ -16,6 +16,7 @@ function App() {
     currentPage: "login",
     activePage: "login",
     filteredCocktails: [],
+    randomCocktails:[],
     selectedCocktail: null,
     searchInitiated: false,
     searchText: '',
@@ -84,6 +85,13 @@ function App() {
     setFavoriteList([...favoriteList, item]);    
   }
   
+  function addRandomList(item){
+    setPageState({
+      ...pageState,
+        randomCocktails: item
+    });
+  }
+
   return (
     <div className="App">
       <div style={{zIndex: -1}}>
@@ -97,15 +105,15 @@ function App() {
         {pageState.currentPage === 'main' && <MainPage
           onCocktailSelect={handleCocktailSelect}
           filteredCocktails={pageState.filteredCocktails}
-          setFilteredCocktails=
-          {(cocktails) => setPageState({ ...pageState, filteredCocktails: cocktails })}
+          setFilteredCocktails={(cocktails) => setPageState({ ...pageState, filteredCocktails: cocktails })}
           onSearchInitiated={onSearchInitiated}
           searchInitiated={pageState.searchInitiated}
           showQuickstart={showQuickstart}
           navigateBackToMain={navigateBackToMain}
           searchText={pageState.searchText}
-          setSearchText=
-          {(searchText) => setPageState({ ...pageState, searchText: searchText })}
+          setSearchText={(searchText) => setPageState({ ...pageState, searchText: searchText })}
+          addRandomList={addRandomList}
+          randomCocktails={pageState.randomCocktails}
         />}
         {pageState.currentPage === 'ingredients' && <CreateDrinkPage />}
         {pageState.currentPage === 'inspiration' && <InspirationPage />}

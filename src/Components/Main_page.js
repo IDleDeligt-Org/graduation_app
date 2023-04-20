@@ -12,7 +12,9 @@ const MainPage = ({
   showQuickstart,
   navigateBackToMain,
   searchText,
-  setSearchText
+  setSearchText,
+  addRandomList,
+  randomCocktails,
 }) => {
 
   const triggerQuickstartSearch = (searchText) => {
@@ -71,9 +73,12 @@ const MainPage = ({
         {showQuickstart ? (
           <div className="main-quickstart-widget">
             <MainQuickstart
-              onQuickstartClick={triggerQuickstartSearch}
+              triggerQuickstartSearch={triggerQuickstartSearch}
+              triggerSearchBeverage = {triggerSearchBeverage}
               triggerSearchIngredient={triggerSearchIngredient}
               triggerSearchNonAlcoholic={triggerSearchNonAlcoholic}
+              randomCocktails={randomCocktails}
+              addRandomList={addRandomList}
             />
           </div>
         ) : (

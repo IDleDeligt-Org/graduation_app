@@ -11,6 +11,8 @@
 .cocktail-item {
   position: relative;
   cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #00000080;
 }
 
 .cocktail-name {

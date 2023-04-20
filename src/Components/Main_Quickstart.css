@@ -18,6 +18,8 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    border-radius: 5px;
+    
 }
 
 .random-drink img {

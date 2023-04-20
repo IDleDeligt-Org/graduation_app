@@ -28,6 +28,7 @@ p {
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
+  box-shadow: 1px 1px 5px #00000080;
 }
 
 form input:not([type="radio"]),

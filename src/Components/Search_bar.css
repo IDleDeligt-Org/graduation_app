@@ -28,7 +28,9 @@
     border-radius: 50px;
 }
 
-
+.search-bar input {
+    margin-top: 0px !important;
+}
 
 .search-bar .search-field input::placeholder {
     font-family: 'Roboto', sans-serif;

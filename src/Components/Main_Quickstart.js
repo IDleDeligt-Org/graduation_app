@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useStat } from 'react';
 import './Main_Quickstart.css';
 import { MdBrokenImage } from 'react-icons/md';
+import LoginLogo from './Login_logo';
 
-const MainQuickstart = ({ 
-    triggerQuickstartSearch, 
-    triggerSearchBeverage, 
-    triggerSearchIngredient, 
+const MainQuickstart = ({
+    triggerQuickstartSearch,
+    triggerSearchBeverage,
+    triggerSearchIngredient,
     triggerSearchNonAlcoholic,
     addRandomList,
-    randomCocktails,}) => {
+    randomCocktails, }) => {
     const quickstartOptions = ['Gin', 'Rum', 'Tequila', 'Vodka', 'Whiskey'];
 
     useEffect(() => {
@@ -43,6 +44,10 @@ const MainQuickstart = ({
 
     return (
         <div className='main-quickstart'>
+            <div className='main-quickstart-header'>
+                <LoginLogo />
+                <h1 className="main-quickstart-title">sipster</h1>
+            </div>
             <div className='random-drinks-container'>
                 {randomCocktails.map((drink, index) => (
                     <div key={drink.idDrink} className="random-drink">

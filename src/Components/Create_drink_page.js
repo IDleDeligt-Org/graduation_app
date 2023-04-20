@@ -129,7 +129,7 @@ const CreateDrinkPage = ({ navigateBackToMain }) => {
 
   return (
     <div className='create-drink-page-content'>
-      <h1 className='create-drink-h1'>Create cocktail</h1>
+      <h1 className='create-drink-h1'>create cocktail</h1>
 
       <form>
         <div className='create-drink-page-text'>
@@ -149,9 +149,9 @@ const CreateDrinkPage = ({ navigateBackToMain }) => {
                   maxLength={100} required></input>
               </div>
               <div className='create-image-container'>
-                <div className="back-button-container">
+                {/* <div className="back-button-container">
                   <span className="material-icons back-button" onClick={() => navigateBackToMain()}>arrow_back</span>
-                </div>
+                </div> */}
                 <img className='create-drink-page-image' src={imageUrl} alt={""} />
                 <input type="text" value={imageUrl}
                   placeholder="Enter Image Url"

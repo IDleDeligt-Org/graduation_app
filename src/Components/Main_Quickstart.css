@@ -1,3 +1,17 @@
+.main-quickstart-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.main-quickstart-title {
+    font-size: 2em;
+    margin-left: 10px;
+    color: #004d4d;
+}
+
 .main-quickstart {
     position: relative;
     z-index: 2;

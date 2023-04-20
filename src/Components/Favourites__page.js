@@ -53,6 +53,7 @@ export default function FavouritePage({ favoriteList, setFavoriteList }) {
 
   return (
     <div className="favorite-container">
+      <h1 className='favorites-h1'>my favorites</h1>
       {renderCocktails()}
     </div>
   );

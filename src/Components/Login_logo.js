@@ -4,8 +4,8 @@ import './Logo.css';
 const LoginLogo = () => (
     <svg
         className="Login-logo"
-        width="100"
-        height="100"
+        width="60"
+        height="60"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
     >
@@ -21,7 +21,7 @@ const LoginLogo = () => (
                 id="layer1"
                 transform="translate(21.018412,96.879156)">
                 <path style={{
-                    fill: "#ffd500ff",
+                    fill: "#004d4d",
                     fillOpacity: 1,
                     stroke: "none",
                     strokeWidth: 0.264583,

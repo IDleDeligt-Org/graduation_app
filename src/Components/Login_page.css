@@ -13,15 +13,11 @@
     justify-content: center;
 }
 
-.login-page-logo {
-    width: 50px;
-    /* Reduce the size of the logo */
-}
-
 .title {
     font-size: 2em;
+    
     margin-left: 10px;
-    color: #fff;
+    color: #004d4d;
 }
 
 .login-page-input {

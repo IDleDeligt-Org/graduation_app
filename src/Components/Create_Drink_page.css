@@ -1,129 +1,29 @@
-h2 {
-  padding: 0;
-  margin-bottom: 15px;
+h1 {
+  padding-top: 40px;
+  font-size: 2em;
+}
+
+p {
+  font-size: 1.1em;
+  color: #505050;
 }
 
 .create-drink-page-content {
-  position: relative;
-  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  width: 100%;
+  margin: 15px;
+  color: #505050;
 }
 
-.create-drink-page-image {
-  margin: 0;
-  width: 100%;
-}
-
-.create-drink-page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 20px;
-}
-
-.create-drink-page-title {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  padding-right: 20px;
-}
-
-.create-drink-page-header .favorite-icon {
-  font-size: 34px !important;
-  color: #888;
-  cursor: pointer;
-}
-
-.create-drink-page-header .favorite-icon.material-icons.active {
-  color: #ffd500;
-}
-
-.create-drink-page-header .favorite-icon:active,
-.create-drink-page-header .favorite-icon:focus {
-  background-color: transparent !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-.create-image-container {
-  position: relative;
-}
-
-.back-button-container {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #0000003a;
-}
-
-.back-button-container:active {
-  background-color: #ffd500;
-}
-
-.back-button {
-  color: #fff;
-  font-size: 24px;
-}
-
-.back-button:active {
-  color: #111;
-}
-
-.create-drink-page-text {
-  padding: 10px 20px 20px 20px;
-} 
-
-.create-drink-page-tags {
-  font-weight: 100;
-  font-style: italic;
-}
-
-.create-drink-page-ingredients {
-  display: grid;
-  grid-template-columns: max-content max-content;
-  grid-gap: 10px;
-  align-items: center;
-}
-
-.create-drink-page-ingredient {
-  display: contents;
-}
-
-.create-drink-measurement {
-  text-align: right;
-  margin-right: 5px;
-}
-
-.create-drink-ingredient {
-  text-align: left;
-}
-
-.create-dark-gray-box {
-  background-color: #222222;
-  padding: 15px;
+.create-drink-page-ingredients,
+.create-dark-gray-box.create-drink-page-instructions {
+  background-color: #fff;
   border-radius: 5px;
-  margin-top: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-.create-dark-gray-box h2 {
-  color: #ddd;
-}
-
-.create-dark-gray-box p,
-.create-dark-gray-box .drink-ingredient,
-.create-dark-gray-box .drink-measurement {
-  color: #bbbbbb;
+form input:not([type="radio"]), form select, form textarea, form button {
+  width: 100%;
 }

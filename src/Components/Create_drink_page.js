@@ -2,7 +2,7 @@ import './Create_Drink_page.css';
 import React, { useEffect, useState } from 'react';
 import glassTypes from '../Data/glassTypes';
 
-const CreateDrinkPage = ({ navigateBack }) => {
+const CreateDrinkPage = ({ navigateBackToMain }) => {
   const [imageUrl, setImageUrl] = useState("");
   const [cocktailName, setCocktailName] = useState("");
   const [cocktailTag, setCocktailTag] = useState("");
@@ -150,7 +150,7 @@ const CreateDrinkPage = ({ navigateBack }) => {
               </div>
               <div className='create-image-container'>
                 <div className="back-button-container">
-                  <span className="material-icons back-button" onClick={() => navigateBack()}>arrow_back</span>
+                  <span className="material-icons back-button" onClick={() => navigateBackToMain()}>arrow_back</span>
                 </div>
                 <img className='create-drink-page-image' src={imageUrl} alt={""} />
                 <input type="text" value={imageUrl}

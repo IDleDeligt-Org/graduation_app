@@ -16,8 +16,6 @@ function App() {
     currentPage: "login",
     activePage: "login",
     filteredCocktails: [],
-    // byNameCocktails: [],
-    // byIngredientCocktails: [],
     selectedCocktail: null,
     searchInitiated: false,
     searchText: '',
@@ -42,6 +40,7 @@ function App() {
       activePage: 'main',
       currentPage: 'main',
       searchText: '',
+      filteredCocktails: [],
     });
   }
 
@@ -62,6 +61,7 @@ function App() {
       currentPage: "main",
       selectedCocktail: null,
       searchText: '',
+      filteredCocktails: [],
     });
   }
 
@@ -85,20 +85,6 @@ function App() {
     setFavoriteList(prevFavoriteList => [...prevFavoriteList, item]);
   }
   
-  // function setByNameCocktails(data){
-  //   setPageState({
-  //     ...pageState,
-  //     setByNameCocktails: data,
-  //   });
-  // }
-  
-  // function setByIngredientCocktails(data){
-  //   setPageState({
-  //     ...pageState,
-  //     setByIngredientCocktails: data,
-  //   });
-  // }
-
   return (
     <div className="App">
       <div style={{zIndex: -1}}>
@@ -107,15 +93,12 @@ function App() {
       <div className="App-header"></div>
 
       <div className='App-content'>
-        {pageState.currentPage === 'login' && <LoginPage />}
+        {pageState.currentPage === 'login' && <LoginPage 
+          navigateBackToMain={navigateBackToMain}/>}
         {pageState.currentPage === 'main' && <MainPage
           onCocktailSelect={handleCocktailSelect}
           filteredCocktails={pageState.filteredCocktails}
           setFilteredCocktails={(cocktails) => setPageState({ ...pageState, filteredCocktails: cocktails })}
-          // byNameCocktails={pageState.byNameCocktails}
-          // setByNameCocktails={setByNameCocktails}
-          // byIngredientCocktails={pageState.byIngredientCocktails}
-          // setByIngredientCocktails={setByIngredientCocktails}
           onSearchInitiated={onSearchInitiated}
           searchInitiated={pageState.searchInitiated}
           showQuickstart={showQuickstart}

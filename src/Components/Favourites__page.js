@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-export default function FavouritePage({ favoriteList, addFavoriteList }) {
+export default function FavouritePage({ favoriteList, setFavoriteList }) {
 
   console.log("favoritePage rendered")
   const url = "https://sipster.azurewebsites.net/api/Favorite/user/"
@@ -9,7 +9,7 @@ export default function FavouritePage({ favoriteList, addFavoriteList }) {
     async function fetchFavorites() {
       await fetch(url + 2)
       .then((response) => response.json())
-      .then((result) => addFavoriteList(result.$values))
+      .then((result) => setFavoriteList(result.$values))
     }
     fetchFavorites();
   }, []);

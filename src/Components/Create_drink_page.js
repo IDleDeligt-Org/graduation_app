@@ -149,10 +149,6 @@ const CreateDrinkPage = ({ navigateBackToMain }) => {
                   maxLength={100} required></input>
               </div>
               <div className='create-image-container'>
-                {/* <div className="back-button-container">
-                  <span className="material-icons back-button" onClick={() => navigateBackToMain()}>arrow_back</span>
-                </div> */}
-                <img className='create-drink-page-image' src={imageUrl} alt={""} />
                 <input type="text" value={imageUrl}
                   placeholder="Enter Image Url"
                   onChange={(e) => setImageUrl(e.target.value)} />

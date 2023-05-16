@@ -24,7 +24,7 @@ const MainPage = ({
   const triggerSearch = async (urlPart) => {
     console.log(urlPart);
     onSearchInitiated();
-    const baseUrl = "https://sipster.azurewebsites.net/api";
+    const baseUrl = "https://localhost:7195/api";
     const response = await fetch(`${baseUrl}${urlPart}`);
     const result = await response.json();
     console.log(result.$values);

@@ -17,7 +17,7 @@ export default function FavouritePage({
     e.target.previousSibling.style.display = 'flex';
   };
   console.log("favoritePage rendered")
-  const url = "https://sipster.azurewebsites.net/api/Favorite/user/"
+  const url = "https://localhost:7195/api/Favorite/user/"
 
   useEffect(() => {
     async function fetchFavorites() {

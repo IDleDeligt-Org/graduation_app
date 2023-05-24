@@ -80,7 +80,7 @@ const CreateDrinkPage = ({ navigateBackToMain }) => {
     const mappedIngredients = mapIngredients();
     let response;
     try {
-      response = await fetch("https://sipster.azurewebsites.net/api/beverage", {
+      response = await fetch("https://localhost:7195/api/beverage", {
         method: "POST",
         body: JSON.stringify({
           "beverageId": 0,
@@ -120,7 +120,7 @@ const CreateDrinkPage = ({ navigateBackToMain }) => {
 
   useEffect(() => {
     async function fetchIngredients() {
-      await fetch("https://sipster.azurewebsites.net/api/ingredient/local/all")
+      await fetch("https://localhost:7195/api/ingredient/local/all")
         .then((response) => response.json())
         .then((result) => setIngredientsList(result.$values))
     }

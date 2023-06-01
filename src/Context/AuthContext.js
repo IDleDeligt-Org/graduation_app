@@ -23,11 +23,14 @@ export const AuthProvider = (props) => {
     }, []);
 
     const login = () => {
-        window.location.href = '/auth/login';
+        //window.location.href = process.env.REACT_APP_API_URL + '/auth/login';
+
+        setIsAuthenticated(true);
     }
 
     const logout = () => {
-        window.location.href = '/auth/logout';
+        //window.location.href = process.env.REACT_APP_API_URL + '/auth/logout';
+        setIsAuthenticated(false);
     }
 
     return (

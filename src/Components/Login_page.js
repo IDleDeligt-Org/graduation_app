@@ -1,27 +1,23 @@
 import React, { useContext, useState } from 'react';
-import {redirect} from 'react-router-dom';
+import {Navigate, useNavigate} from 'react-router-dom';
 import LoginLogo from './Login_logo';
 import './Login_page.css';
 import { AuthContext } from '../Context/AuthContext';
 
-const Login_page = ({
-  navigateBackToMain,
-}) => {
+const Login_page = () => {
   const {isAuthenticated, login} = useContext(AuthContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
 
   const handleSubmit = (e) => {
+    
     e.preventDefault();
-    console.log(`Logging in ${selectedUser} with password ${password}`);
-    login(selectedUser, password);
-    // Perform your login logic here
+    console.log(`Logging in ${username} with password ${password}`);
+    login(username, password);
+    navigate("/main");
   };
-
-  if(isAuthenticated){
-    return <redirect to="/main"/>;
-  }
   
   return (
     <div className="login-page">
@@ -46,8 +42,9 @@ const Login_page = ({
             name="password"
             value={password}
             placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <button className='login-button' type="submit" onClick={navigateBackToMain}>Login</button>
+          <button className='login-button' type="submit">Login</button>
         </form>
       </div>
     </div>

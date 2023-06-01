@@ -24,7 +24,7 @@ const MainPage = ({
   const triggerSearch = async (urlPart) => {
     console.log(urlPart);
     onSearchInitiated();
-    const baseUrl = "https://localhost:7195/api";
+    const baseUrl = process.env.REACT_APP_API_URL;
     const response = await fetch(`${baseUrl}${urlPart}`);
     const result = await response.json();
     console.log(result.$values);

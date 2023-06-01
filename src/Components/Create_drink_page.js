@@ -80,7 +80,7 @@ const CreateDrinkPage = ({ navigateBackToMain }) => {
     const mappedIngredients = mapIngredients();
     let response;
     try {
-      response = await fetch("https://localhost:7195/api/beverage", {
+      response = await fetch(process.env.REACT_APP_API_URL + "/beverage", {
         method: "POST",
         body: JSON.stringify({
           "beverageId": 0,

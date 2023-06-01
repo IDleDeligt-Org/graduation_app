@@ -17,7 +17,7 @@ export default function FavouritePage({
     e.target.previousSibling.style.display = 'flex';
   };
   console.log("favoritePage rendered")
-  const url = "https://localhost:7195/api/Favorite/user/"
+  const url = process.env.REACT_APP_API_URL + "/Favorite/user/";
 
   useEffect(() => {
     async function fetchFavorites() {

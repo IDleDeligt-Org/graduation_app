@@ -7,7 +7,7 @@ const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => 
  
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const url = "https://localhost:7195/api/Favorite/user/2"
+  const url = process.env.REACT_APP_API_URL + "/Favorite/user/2";
 
   async function postFavoriteList() {
     const requestBody = {

@@ -32,17 +32,17 @@ const MainPage = ({
   };
 
   const triggerSearchIngredient = async (searchText) => {
-    const ingredients = await triggerSearch(`/ingredient/${searchText}`);
+    const ingredients = await triggerSearch(`/beverage/ingredient/${searchText}`);
     return ingredients;
   };
   
   const triggerSearchBeverage = async (searchText) => {
-    const beverages = await triggerSearch(`/beverage/${searchText}`);
+    const beverages = await triggerSearch(`/beverage/name/${searchText}`);
     return beverages;
   };
 
   const triggerSearchNonAlcoholic = () => {
-    triggerSearch("/ingredient/search/non_alcoholic");
+    triggerSearch("/beverage/search/non_alcoholic");
   };
 
   const triggerSearchAll = async (searchText) => {

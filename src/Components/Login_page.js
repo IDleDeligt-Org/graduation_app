@@ -1,31 +1,28 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import {redirect} from 'react-router-dom';
 import LoginLogo from './Login_logo';
 import './Login_page.css';
+import { AuthContext } from '../Context/AuthContext';
 
 const Login_page = ({
   navigateBackToMain,
 }) => {
-  const [selectedUser, setSelectedUser] = useState('');
+  const {isAuthenticated, login} = useContext(AuthContext);
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const users = [
-    { username: 'Novice', password: '1234' },
-    // Add more users here
-  ];
-
-  const handleUserChange = (e) => {
-    const selected = e.target.value;
-    setSelectedUser(selected);
-    const user = users.find((user) => user.username === selected);
-    setPassword(user ? user.password : '');
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(`Logging in ${selectedUser} with password ${password}`);
+    login(selectedUser, password);
     // Perform your login logic here
   };
 
+  if(isAuthenticated){
+    return <redirect to="/main"/>;
+  }
+  
   return (
     <div className="login-page">
       <div className='login-page-header'>
@@ -34,21 +31,13 @@ const Login_page = ({
       </div>
       <div className='login-page-input'>
         <form className='login-page-form' onSubmit={handleSubmit}>
-          {/* <label htmlFor="user">User:</label> */}
-          <select
+          <input
             className='select-user'
-            name="user"
-            id="user"
-            value={selectedUser}
-            onChange={handleUserChange}
-          >
-            <option value="">Select a user</option>
-            {users.map((user, index) => (
-              <option key={index} value={user.username}>
-                {user.username}
-              </option>
-            ))}
-          </select>
+            type="text"
+            value={username}
+            placeholder='Username'
+            onChange={(e) => setUsername(e.target.value)}
+          />
           {/* <label htmlFor="password">Password:</label> */}
           <input
             className='password-input'
@@ -56,7 +45,6 @@ const Login_page = ({
             id="password"
             name="password"
             value={password}
-            readOnly
             placeholder="Password"
           />
           <button className='login-button' type="submit" onClick={navigateBackToMain}>Login</button>

@@ -9,6 +9,7 @@ import NavBar from './Components/Nav_bar';
 import React, { useState } from 'react';
 import Logo from './Components/Logo';
 import CreateDrinkPage from './Components/Create_drink_page';
+import { useAuth } from './Context/AuthContext';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
 
   const [showQuickstart, setShowQuickstart] = useState(true);
   const [favoriteList, setFavoriteList] = useState([]);
+  const {isAuthenticated} = useAuth();
 
   function navigateTo(page) {
     setPageState({
@@ -92,6 +94,18 @@ function App() {
     });
   }
 
+  function ProtectedRoute({component: Component, ...rest})
+  {
+    if(!isAuthenticated){
+      setPageState({
+        ...pageState,
+        activePage: "login",
+        currentPage: "login"})
+    }
+    
+    <Component {...rest} />
+  }
+
   return (
     <div className="App">
       <div style={{zIndex: -1}}>
@@ -102,7 +116,8 @@ function App() {
       <div className='App-content'>
         {pageState.currentPage === 'login' && <LoginPage 
           navigateBackToMain={navigateBackToMain}/>}
-        {pageState.currentPage === 'main' && <MainPage
+        {pageState.currentPage === 'main' && <ProtectedRoute 
+          component={MainPage}
           onCocktailSelect={handleCocktailSelect}
           filteredCocktails={pageState.filteredCocktails}
           setFilteredCocktails={(cocktails) => setPageState({ ...pageState, filteredCocktails: cocktails })}
@@ -114,16 +129,23 @@ function App() {
           setSearchText={(searchText) => setPageState({ ...pageState, searchText: searchText })}
           addRandomList={addRandomList}
           randomCocktails={pageState.randomCocktails}
+        ></ProtectedRoute>}
+        {pageState.currentPage === 'ingredients' && <ProtectedRoute 
+        component = {CreateDrinkPage}
+         />}
+        {pageState.currentPage === 'inspiration' && <ProtectedRoute 
+        component = {InspirationPage} 
         />}
-        {pageState.currentPage === 'ingredients' && <CreateDrinkPage />}
-        {pageState.currentPage === 'inspiration' && <InspirationPage />}
-        {pageState.currentPage === 'favorites' && <FavouritePage
+        {pageState.currentPage === 'favorites' && <ProtectedRoute
+          component={FavouritePage}
           setFavoriteList={setFavoriteList}
           favoriteList={favoriteList}
           onCocktailSelect={handleCocktailSelect}
         />}
-        {pageState.currentPage === 'settings' && <SettingsPage />}
-        {pageState.currentPage === 'drink' && <DrinkPage
+        {pageState.currentPage === 'settings' && <ProtectedRoute
+        component={SettingsPage} />}
+        {pageState.currentPage === 'drink' && <ProtectedRoute
+          component = {DrinkPage}
           navigateBack={navigateBack}
           cocktail={pageState.selectedCocktail}
           favoriteList={favoriteList}

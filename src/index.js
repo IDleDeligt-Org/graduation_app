@@ -6,12 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import { AuthProvider } from './Context/AuthContext';
 import { BrowserRouter } from 'react-router-dom';
 
-const baseUrl = process.env.REACT_APP_BASE_URL;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <BrowserRouter basename={baseUrl}>
+      <BrowserRouter>
         <App /> 
       </BrowserRouter>
     </AuthProvider>

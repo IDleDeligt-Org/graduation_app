@@ -23,11 +23,11 @@ const MainPage = ({
 
   const triggerSearch = async (urlPart) => {
     console.log(urlPart);
+    let searchUrl = process.env.REACT_APP_API_URL + urlPart;
+    console.log(searchUrl);
     onSearchInitiated();
-    const baseUrl = process.env.REACT_APP_API_URL;
-    const response = await fetch(`${baseUrl}${urlPart}`);
+    const response = await fetch(searchUrl);
     const result = await response.json();
-    console.log(result.$values);
     setFilteredCocktails(result.$values);
   };
 

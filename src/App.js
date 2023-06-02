@@ -10,14 +10,12 @@ import React, { useState } from 'react';
 import Logo from './Components/Logo';
 import CreateDrinkPage from './Components/Create_drink_page';
 import { useAuth } from './Context/AuthContext';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import ProtectedRoutes from './Components/ProtectedRoutes copy';
 
 function App() {
 
   const [pageState, setPageState] = useState({
-    // currentPage: "login",
-    // activePage: "login",
     filteredCocktails: [],
     randomCocktails:[],
     selectedCocktail: null,
@@ -27,46 +25,35 @@ function App() {
 
   const [showQuickstart, setShowQuickstart] = useState(true);
   const [favoriteList, setFavoriteList] = useState([]);
-  const {isAuthenticated} = useAuth();
+  const navigate = useNavigate();
 
-  function navigateToMain() {
-    setShowQuickstart(true);
+  function navigateBackToSearch() {
     setPageState({
       ...pageState,
-      activePage: 'main',
-      currentPage: 'main',
-      searchText: '',
-      filteredCocktails: [],
-    });
-  }
-
-  function navigateBack() {
-    setPageState({
-      ...pageState,
-      activePage: "main",
-      currentPage: "main",
       selectedCocktail: null
     });
+    navigate("/main");
   }
 
   function navigateBackToMain() {
     setShowQuickstart(true);
     setPageState({
       ...pageState,
-      activePage: "main",
-      currentPage: "main",
       selectedCocktail: null,
       searchText: '',
       filteredCocktails: [],
     });
+
+    navigate("/main");
   }
 
   function handleCocktailSelect(cocktail) {
     setPageState({
       ...pageState,
       selectedCocktail: cocktail,
-      currentPage: 'drink'
     });
+
+    navigate("/drink");
   }
 
   function onSearchInitiated() {
@@ -119,7 +106,7 @@ function App() {
                       onCocktailSelect={handleCocktailSelect}/>} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path='/drink' element={<DrinkPage 
-                      navigateBack={navigateBack}
+                      navigateBackToSearch={navigateBackToSearch}
                       cocktail={pageState.selectedCocktail}
                       favoriteList={favoriteList}
                       addFavoriteList={addFavoriteList}/>}/>
@@ -130,7 +117,7 @@ function App() {
       </div>
       
       <div className='App-footer'>
-        <NavBar />
+        <NavBar navigateToMain={navigateBackToMain} />
       </div>
     </div>
   );

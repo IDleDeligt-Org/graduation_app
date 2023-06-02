@@ -2,7 +2,7 @@ import React from 'react';
 import './Nav_bar.css';
 import { useNavigate } from 'react-router-dom';
 
-const NavBar = ({ navigateTo, navigateToMain, activePage }) => {
+const NavBar = ({ navigateToMain, activePage }) => {
   const navigate = useNavigate();
   return (
     <div className="NavBar">
@@ -19,7 +19,7 @@ const NavBar = ({ navigateTo, navigateToMain, activePage }) => {
         <span className={`material-icons ${activePage === "inspiration" ? "active" : ""}`}>lightbulb_outline</span>
       </button>
       <button
-        onClick={() => navigate("/main")}
+        onClick={navigateToMain}
         className={activePage === "main" ? "active" : ""}
       >
         <span className={`material-icons ${activePage === "main" ? "active" : ""}`}>local_bar</span>

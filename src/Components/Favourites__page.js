@@ -16,7 +16,6 @@ export default function FavouritePage({
     e.target.style.display = 'none';
     e.target.previousSibling.style.display = 'flex';
   };
-  console.log("favoritePage rendered")
   const url = process.env.REACT_APP_API_URL + "/Favorite/user/";
 
   useEffect(() => {

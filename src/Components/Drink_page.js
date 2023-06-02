@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import glassTypes from '../Data/glassTypes';
 
 
-const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => {
+const DrinkPage = ({ cocktail, navigateBackToSearch, favoriteList, addFavoriteList}) => {
  
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -46,7 +46,7 @@ const DrinkPage = ({ cocktail, navigateBack, favoriteList, addFavoriteList}) => 
     <div className='drink-page-content'>
       <div className='image-container'>
         <div className="back-button-container">
-          <span className="material-icons back-button" onClick={() => navigateBack()}>arrow_back</span>
+          <span className="material-icons back-button" onClick={() => navigateBackToSearch()}>arrow_back</span>
         </div>
         <img className='drink-page-image' src={cocktail.image} alt={cocktail.name} />
       </div>

@@ -22,27 +22,27 @@ const MainPage = ({
   };
 
   const triggerSearch = async (urlPart) => {
-    console.log(urlPart);
     let searchUrl = process.env.REACT_APP_API_URL + urlPart;
-    console.log(searchUrl);
     onSearchInitiated();
     const response = await fetch(searchUrl);
     const result = await response.json();
     setFilteredCocktails(result.$values);
   };
 
+
+
   const triggerSearchIngredient = async (searchText) => {
-    const ingredients = await triggerSearch(`/ingredient/${searchText}`);
+    const ingredients = await triggerSearch(`/beverage/ingredient/${searchText}`);
     return ingredients;
   };
   
   const triggerSearchBeverage = async (searchText) => {
-    const beverages = await triggerSearch(`/beverage/${searchText}`);
+    const beverages = await triggerSearch(`/beverage/name/${searchText}`);
     return beverages;
   };
 
   const triggerSearchNonAlcoholic = () => {
-    triggerSearch("/ingredient/search/non_alcoholic");
+    triggerSearch("/beverage/search/non_alcoholic");
   };
 
   const triggerSearchAll = async (searchText) => {

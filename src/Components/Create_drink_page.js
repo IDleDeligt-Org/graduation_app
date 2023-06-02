@@ -120,7 +120,7 @@ const CreateDrinkPage = ({ navigateBackToMain }) => {
 
   useEffect(() => {
     async function fetchIngredients() {
-      await fetch("https://localhost:7195/api/ingredient/local/all")
+      await fetch(process.env.REACT_APP_API_URL + "/ingredient/local/all")
         .then((response) => response.json())
         .then((result) => setIngredientsList(result.$values))
     }
